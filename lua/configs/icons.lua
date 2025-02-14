@@ -18,6 +18,22 @@ local icons = {
       -- info = " ",
       -- hint = " ",
     },
+    comments = {
+      fix = "◯",
+      todo = "◯",
+      hack = "◯",
+      warn = "◯",
+      perf = "◯",
+      note = "◯",
+      test = "◯",
+      -- fix = " ",
+      -- todo = " ",
+      -- hack = " ",
+      -- warn = " ",
+      -- perf = " ",
+      -- note = " ",
+      -- test = " ",
+    }
   },
   virtual_text = {
     color = " ",
