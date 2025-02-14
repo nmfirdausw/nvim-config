@@ -1,5 +1,7 @@
+-- Runtime options
 vim.opt.rtp:append('/opt/homebrew/opt/fzf')
 
+-- General
 vim.opt.clipboard = "unnamedplus"
 
 -- Indentation
