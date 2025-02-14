@@ -21,6 +21,7 @@ Ensure the following dependencies are installed:
 
 ## Features
 - **Plugin Management**: Uses `mini.deps` for lightweight and minimalist plugin management.
+- **Status Line & UI Tweaks**: Aesthetic and functional improvements using `heirline.nvim` and other UI enhancements.
 
 ## Contributing
 This is a personal setup, but suggestions and improvements are welcome! Feel free to fork and modify it to your needs.
