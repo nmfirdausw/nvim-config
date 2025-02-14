@@ -17,6 +17,43 @@ vim.opt.rtp:append('/opt/homebrew/opt/fzf')
 
 -- General
 vim.opt.clipboard = "unnamedplus"
+vim.opt.cmdheight = 1
+vim.opt.conceallevel = 2
+vim.opt.confirm = true
+vim.opt.formatoptions = "jcroqlnt"
+vim.opt.grepformat = "%f:%l:%c:%m"
+vim.opt.grepprg = "rg --vimgrep"
+vim.opt.ignorecase = true
+vim.opt.inccommand = "nosplit"
+vim.opt.jumpoptions = "view"
+vim.opt.laststatus = 3
+vim.opt.linebreak = true
+vim.opt.list = true
+vim.opt.mouse = "a"
+vim.opt.ruler = false
+vim.opt.scrolloff = 4
+vim.opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
+vim.opt.shortmess:append({ W = true, I = true, c = true, C = true })
+vim.opt.showmode = false
+vim.opt.sidescrolloff = 8
+vim.opt.signcolumn = "yes"
+vim.opt.smartcase = true
+vim.opt.spelllang = { "en" }
+vim.opt.splitbelow = true
+vim.opt.splitkeep = "screen"
+vim.opt.splitright = true
+vim.opt.termguicolors = true
+vim.opt.timeoutlen = vim.g.vscode and 1000 or 300
+vim.opt.updatetime = 200
+vim.opt.virtualedit = "block"
+vim.opt.wildmode = "longest:full,full"
+vim.opt.winminwidth = 5
+vim.opt.wrap = false
+
+-- Completion
+vim.opt.pumblend = 10
+vim.opt.pumheight = 15
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 -- Global options
 vim.g.inlay_hints_enable = true
