@@ -8,7 +8,7 @@ MiniDeps.now(function()
       'WhoIsSethDaniel/mason-tool-installer.nvim',
     },
   })
-  
+
   local servers = {
 
   }
@@ -39,4 +39,32 @@ MiniDeps.now(function()
   end
 
   require("mason-lspconfig").setup_handlers(handlers)
+
+  local diagnostics = {
+    virtual_text = {
+      prefix = function(diagnostic)
+        for severity, icon in pairs(Icons.diagnostics.virtual_text.prefix) do
+          if diagnostic.severity == vim.diagnostic.severity[severity:upper()] then
+            return icon
+          end
+        end
+      end
+    },
+  }
+
+  vim.diagnostic.config({
+    signs = {
+      text = {
+        [vim.diagnostic.severity.ERROR] = Icons.diagnostics.signs.error,
+        [vim.diagnostic.severity.WARN] = Icons.diagnostics.signs.warn,
+        [vim.diagnostic.severity.HINT] = Icons.diagnostics.signs.hint,
+        [vim.diagnostic.severity.INFO] = Icons.diagnostics.signs.info,
+      },
+    },
+    underline = true,
+    update_in_insert = true,
+    severity_sort = true,
+    virtual_text = diagnostics.virtual_text,
+  })
+
 end)
