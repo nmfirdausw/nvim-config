@@ -1,4 +1,4 @@
-MiniDeps.now(func
+MiniDeps.later(function()
   MiniDeps.add({
     source = 'nvim-treesitter/nvim-treesitter',
 		hooks = {
@@ -7,18 +7,18 @@ MiniDeps.now(func
 			end
 		},
   })
-end)
 
-require('nvim-treesitter.configs').setup({
-  ensure_installed = {
-		'lua',
-		'markdown',
-		'markdown_inline',
-		'query',
-		'vim',
-		'vimdoc',
-	},
-  highlight = {
-    enable = true
-  },
-})
+  require('nvim-treesitter.configs').setup({
+    ensure_installed = {
+      'lua',
+      'markdown',
+      'markdown_inline',
+      'query',
+      'vim',
+      'vimdoc',
+    },
+    highlight = {
+      enable = true
+    },
+  })
+end)
