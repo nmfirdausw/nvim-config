@@ -20,3 +20,9 @@ vim.opt.foldenable = true
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 
+-- Cursor options
+vim.opt.cursorcolumn = false
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
+vim.opt.guicursor = "n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor"
+
