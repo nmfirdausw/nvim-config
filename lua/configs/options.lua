@@ -14,3 +14,9 @@ vim.opt.shiftwidth = 2
 vim.opt.smartindent = true
 vim.opt.tabstop = 2
 
+-- Foldign
+vim.opt.foldcolumn = "1"
+vim.opt.foldenable = true
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+
