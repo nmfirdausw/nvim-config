@@ -23,7 +23,7 @@ MiniDeps.now(function()
     pattern = 'MasonToolsUpdateCompleted',
     callback = function()
       vim.schedule(function()
-        vim.cmd("e")
+        vim.cmd("LspStart")
       end)
     end,
   })
