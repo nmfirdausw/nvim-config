@@ -28,5 +28,15 @@ vim.opt.guicursor = "n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor/lCursor,r-c
 
 -- Line numbers
 vim.opt.number = true
-vim.opt.relativenumber = true
 vim.opt.numberwidth = 1
+vim.opt.relativenumber = true
+
+-- History
+vim.opt.history = 1000
+vim.opt.swapfile = false
+vim.opt.undofile = true
+vim.opt.undolevels = 10000
+vim.opt.writebackup = false
+
+vim.opt.fillchars:append({ eob = "~" })
+
