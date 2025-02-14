@@ -1,3 +1,7 @@
+-- leader
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
 -- Runtime options
 vim.opt.rtp:append('/opt/homebrew/opt/fzf')
 
