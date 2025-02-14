@@ -7,7 +7,7 @@ MiniDeps.now(function()
     relculright = true,
     segments = {
       {
-        sign = { name = { ".*" }, namespace = { ".*" }, maxwidth = 1, colwidth = 1, auto = false, fillchar = "~" },
+        sign = { name = { ".*" }, namespace = { ".*" }, maxwidth = 1, colwidth = 1, auto = false, fillchar = Icons.signs.fillchar },
         click = "v:lua.ScSa"
       },
       { text = { " " } },

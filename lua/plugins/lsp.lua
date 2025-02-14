@@ -52,7 +52,7 @@ MiniDeps.now(function()
   local diagnostics = {
     virtual_text = {
       prefix = function(diagnostic)
-        for severity, icon in pairs(Icons.diagnostics.virtual_text.prefix) do
+        for severity, icon in pairs(Icons.virtual_text.diagnostics) do
           if diagnostic.severity == vim.diagnostic.severity[severity:upper()] then
             return icon
           end
@@ -64,10 +64,10 @@ MiniDeps.now(function()
   vim.diagnostic.config({
     signs = {
       text = {
-        [vim.diagnostic.severity.ERROR] = Icons.diagnostics.signs.error,
-        [vim.diagnostic.severity.WARN] = Icons.diagnostics.signs.warn,
-        [vim.diagnostic.severity.HINT] = Icons.diagnostics.signs.hint,
-        [vim.diagnostic.severity.INFO] = Icons.diagnostics.signs.info,
+        [vim.diagnostic.severity.ERROR] = Icons.signs.diagnostics.error,
+        [vim.diagnostic.severity.WARN] = Icons.signs.diagnostics.warn,
+        [vim.diagnostic.severity.HINT] = Icons.signs.diagnostics.hint,
+        [vim.diagnostic.severity.INFO] = Icons.signs.diagnostics.info,
       },
     },
     underline = true,
