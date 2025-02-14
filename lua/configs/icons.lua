@@ -1,20 +1,33 @@
-local M = {}
-
-M.diagnostics = {
+local icons = {
+  devicons = false,
+    folder = "◯",
+    file = "󰑊",
+    -- file = " ",
+    -- folder = " ",
   signs = {
-    error = "●",
-    warn = "●",
-    info = "●",
-    hint = "●",
-  },
-  virtual_text = {
-    prefix = {
-      error = "•",
-      warn = "•",
-      info = "•",
-      hint = "•",
+    -- fillchar = "󰜥 ",
+    fillchar = "~",
+    -- fillchar = " ",
+    diagnostics = {
+      error = "󰑊",
+      warn = "󰑊",
+      info = "󰑊",
+      hint = "󰑊",
+      -- error = " ",
+      -- warn = " ",
+      -- info = " ",
+      -- hint = " ",
     },
   },
+  virtual_text = {
+    color = " ",
+    diagnostics = {
+      error = "",
+      warn = "",
+      info = "",
+      hint = "",
+    },
+  }
 }
 
-return M
+return icons
