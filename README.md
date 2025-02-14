@@ -19,8 +19,8 @@ Ensure the following dependencies are installed:
 - **Node.js** (for some LSP servers)
 - **Ripgrep** (for fuzzy finding)
 
-## Customization
-Modify the configuration to suit your workflow.
+## Features
+- **Plugin Management**: Uses `mini.deps` for lightweight and minimalist plugin management.
 
 ## Contributing
 This is a personal setup, but suggestions and improvements are welcome! Feel free to fork and modify it to your needs.
