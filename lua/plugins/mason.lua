@@ -23,7 +23,7 @@ MiniDeps.now(function()
     pattern = 'MasonToolsUpdateCompleted',
     callback = function()
       vim.schedule(function()
-        vim.cmd("LspStart")
+        vim.cmd('LspStart')
       end)
     end,
   })
@@ -32,7 +32,7 @@ MiniDeps.now(function()
     auto_update = true,
     ensure_installed = {
       -- lsp
-      "lua-language-server",
+      'lua-language-server',
     }
   })
 end)

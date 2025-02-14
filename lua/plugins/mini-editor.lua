@@ -1,14 +1,14 @@
 MiniDeps.later(function()
-  require("mini.ai").setup()
-  require("mini.align").setup()
-  require("mini.bracketed").setup()
-  require("mini.comment").setup()
-  require("mini.cursorword").setup()
-  require("mini.indentscope").setup({
+  require('mini.ai').setup()
+  require('mini.align').setup()
+  require('mini.bracketed').setup()
+  require('mini.comment').setup()
+  require('mini.cursorword').setup()
+  require('mini.indentscope').setup({
     delay = 10,
     symbol = '│',
   })
-  require("mini.move").setup({
+  require('mini.move').setup({
     mappings = {
       left       = '<M-m>',
       right      = '<M-i>',
@@ -34,17 +34,17 @@ MiniDeps.later(function()
       [']'] = { action = 'close', pair = '[]', neigh_pattern = '[^\\].' },
       ['}'] = { action = 'close', pair = '{}', neigh_pattern = '[^\\].' },
     },
-    skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
-    skip_ts = { "string" },
+    skip_next = [=[[%w%%%'%[%'%.%`%$]]=],
+    skip_ts = { 'string' },
     skip_unbalanced = true,
     markdown = true,
   }
 
-  local pairs = require("mini.pairs")
+  local pairs = require('mini.pairs')
   pairs.setup(opts)
   local open = pairs.open
   pairs.open = function(pair, neigh_pattern)
-    if vim.fn.getcmdline() ~= "" then
+    if vim.fn.getcmdline() ~= '' then
       return open(pair, neigh_pattern)
     end
     local o, c = pair:sub(1, 1), pair:sub(2, 2)
@@ -56,11 +56,11 @@ MiniDeps.later(function()
     local next_next = line:sub(cursor[2] + 2, cursor[2] + 2)
     local skip_next = opts.skip_next
 
-    if opts.markdown and o == "`" and vim.bo.filetype == "markdown" and before:match("^%s*``") then
-      return "`\n```" .. vim.api.nvim_replace_termcodes("<up>", true, true, true)
+    if opts.markdown and o == '`' and vim.bo.filetype == 'markdown' and before:match('^%s*``') then
+      return '`\n```' .. vim.api.nvim_replace_termcodes('<up>', true, true, true)
     end
 
-    if opts.skip_next and next ~= "" and next:match(opts.skip_next) then
+    if opts.skip_next and next ~= '' and next:match(opts.skip_next) then
       return o
     end
 
@@ -73,36 +73,36 @@ MiniDeps.later(function()
       end
     end
     if opts.skip_unbalanced and next == c and c ~= o then
-      local _, count_open = line:gsub(vim.pesc(pair:sub(1, 1)), "")
-      local _, count_close = line:gsub(vim.pesc(pair:sub(2, 2)), "")
+      local _, count_open = line:gsub(vim.pesc(pair:sub(1, 1)), '')
+      local _, count_close = line:gsub(vim.pesc(pair:sub(2, 2)), '')
       if count_close > count_open then
         return o
       end
     end
 
-    if o == " " then
-      if before:match("[{!-]") and next:match("[-!}]") then
+    if o == ' ' then
+      if before:match('[{!-]') and next:match('[-!}]') then
         return open(pair, neigh_pattern)
       end
       return o
     end
 
-    if o == "-" then
-      if before:match("[{]") and next:match("[}]") then
+    if o == '-' then
+      if before:match('[{]') and next:match('[}]') then
         return open(pair, neigh_pattern)
-      elseif before:match("[-]") and next:match("[-]") then
-        if before_before:match("[{]") and next_next:match("[}]") then
+      elseif before:match('[-]') and next:match('[-]') then
+        if before_before:match('[{]') and next_next:match('[}]') then
           return open(pair, neigh_pattern)
         end
       end
       return o
     end
 
-    if o == "!" then
-      if before:match("[{]") and next:match("[}]") then
+    if o == '!' then
+      if before:match('[{]') and next:match('[}]') then
         return open(pair, neigh_pattern)
-      elseif before:match("[!]") and next:match("[!]") then
-        if before_before:match("[{]") and next_next:match("[}]") then
+      elseif before:match('[!]') and next:match('[!]') then
+        if before_before:match('[{]') and next_next:match('[}]') then
           return open(pair, neigh_pattern)
         end
       end
@@ -112,9 +112,9 @@ MiniDeps.later(function()
     return open(pair, neigh_pattern)
   end
 
-  require("mini.splitjoin").setup()
-  require("mini.surround").setup()
-  require("mini.trailspace").setup()
+  require('mini.splitjoin').setup()
+  require('mini.surround').setup()
+  require('mini.trailspace').setup()
 
-  vim.keymap.set("n", "gs", function() MiniTrailspace.trim() end, { desc = "Trim trailing whitespace" })
+  vim.keymap.set('n', 'gs', function() MiniTrailspace.trim() end, { desc = 'Trim trailing whitespace' })
 end)

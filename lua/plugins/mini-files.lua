@@ -1,36 +1,36 @@
 MiniDeps.now(function()
   local my_prefix = function(fs_entry)
-    if fs_entry.fs_type == "directory" then
-      if Icons.devicons then return " " .. Icons.folder, "MiniFilesDirectory" end
-      return " " .. Icons.folder .. " ", "MiniFilesDirectory"
+    if fs_entry.fs_type == 'directory' then
+      if Icons.devicons then return ' ' .. Icons.folder, 'MiniFilesDirectory' end
+      return ' ' .. Icons.folder .. ' ', 'MiniFilesDirectory'
     end
-    local has_devicons, devicons = pcall(require, "nvim-web-devicons")
-    if not has_devicons then return " " .. Icons.file .. " ", "MiniFilesFile" end
+    local has_devicons, devicons = pcall(require, 'nvim-web-devicons')
+    if not has_devicons then return ' ' .. Icons.file .. ' ', 'MiniFilesFile' end
 
     local icon, hl = devicons.get_icon(fs_entry.name, nil, { default = false })
     if Icons.devicons then
-      if icon == nil then return " " .. Icons.file .. " ", "MiniFilesFile" end
-      return " " .. icon .. " ", hl or "MiniFilesFile"
+      if icon == nil then return ' ' .. Icons.file .. ' ', 'MiniFilesFile' end
+      return ' ' .. icon .. ' ', hl or 'MiniFilesFile'
     end
-      return " " .. Icons.file .. " ", hl or "MiniFilesFile"
+      return ' ' .. Icons.file .. ' ', hl or 'MiniFilesFile'
   end
 
-  require("mini.files").setup({
+  require('mini.files').setup({
     content = { prefix = my_prefix },
     mappings = {
-      close       = "<esc>",
-      go_in       = "",
-      go_in_plus  = "<cr>",
-      go_out      = "<bs>",
-      go_out_plus = "",
+      close       = '<esc>',
+      go_in       = '',
+      go_in_plus  = '<cr>',
+      go_out      = '<bs>',
+      go_out_plus = '',
       mark_goto   = "'",
-      mark_set    = "m",
-      reset       = "<tab>",
-      reveal_cwd  = "@",
-      show_help   = "g?",
-      synchronize = "=",
-      trim_left   = "<",
-      trim_right  = ">",
+      mark_set    = 'm',
+      reset       = '<tab>',
+      reveal_cwd  = '@',
+      show_help   = 'g?',
+      synchronize = '=',
+      trim_left   = '<',
+      trim_right  = '>',
     },
     windows = {
       preview = true,
@@ -39,9 +39,9 @@ MiniDeps.now(function()
     },
   })
 
-  vim.keymap.set("n", "<bs>", function() MiniFiles.open() end, { desc = "File explorer" })
+  vim.keymap.set('n', '<bs>', function() MiniFiles.open() end, { desc = 'File explorer' })
 
-  vim.api.nvim_create_autocmd("VimResized", {
+  vim.api.nvim_create_autocmd('VimResized', {
     callback = function()
       local new_width_preview = vim.o.columns - 41
       MiniFiles.refresh({ windows = { width_preview = new_width_preview } })
@@ -49,38 +49,38 @@ MiniDeps.now(function()
     end,
   })
 
-  vim.api.nvim_create_autocmd("User", {
-    pattern = "MiniFilesWindowOpen",
+  vim.api.nvim_create_autocmd('User', {
+    pattern = 'MiniFilesWindowOpen',
     callback = function(args)
       local win_id = args.data.win_id
 
       local config = vim.api.nvim_win_get_config(win_id)
-      config.border, config.title_pos = "rounded", "left"
+      config.border, config.title_pos = 'rounded', 'left'
       vim.api.nvim_win_set_config(win_id, config)
     end,
   })
 
-  vim.api.nvim_create_autocmd("User", {
-    pattern = "MiniFilesWindowOpen",
+  vim.api.nvim_create_autocmd('User', {
+    pattern = 'MiniFilesWindowOpen',
     callback = function(args)
       local win_id = args.data.win_id
 
       local config = vim.api.nvim_win_get_config(win_id)
-      config.border, config.title_pos = "rounded", "left"
+      config.border, config.title_pos = 'rounded', 'left'
       vim.api.nvim_win_set_config(win_id, config)
     end,
   })
 
-  vim.api.nvim_create_autocmd("User", {
-    pattern = "MiniFilesWindowUpdate",
+  vim.api.nvim_create_autocmd('User', {
+    pattern = 'MiniFilesWindowUpdate',
     callback = function(args)
       local config = vim.api.nvim_win_get_config(args.data.win_id)
 
-      if config.title[#config.title][1] ~= " " then
-        table.insert(config.title, { " ", "NormalFloat" })
+      if config.title[#config.title][1] ~= ' ' then
+        table.insert(config.title, { ' ', 'NormalFloat' })
       end
-      if config.title[1][1] ~= " " then
-        table.insert(config.title, 1, { " ", "NormalFloat" })
+      if config.title[1][1] ~= ' ' then
+        table.insert(config.title, 1, { ' ', 'NormalFloat' })
       end
 
       vim.api.nvim_win_set_config(args.data.win_id, config)

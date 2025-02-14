@@ -29,8 +29,8 @@ MiniDeps.now(function()
     end,
   }
 
-  vim.api.nvim_create_autocmd("LspAttach", {
-    group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
+  vim.api.nvim_create_autocmd('LspAttach', {
+    group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
     callback = function()
       if vim.g.inlay_hints_enable then
         vim.lsp.inlay_hint.enable()
@@ -39,7 +39,7 @@ MiniDeps.now(function()
   })
 
   for server, opts in pairs(servers) do
-    opts = vim.tbl_extend("force", {
+    opts = vim.tbl_extend('force', {
       capabilities = vim.deepcopy(capabilities),
     }, opts)
     handlers[server] = function()
@@ -47,7 +47,7 @@ MiniDeps.now(function()
     end
   end
 
-  require("mason-lspconfig").setup_handlers(handlers)
+  require('mason-lspconfig').setup_handlers(handlers)
 
   local diagnostics = {
     virtual_text = {
