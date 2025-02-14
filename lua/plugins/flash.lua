@@ -1,0 +1,15 @@
+MiniDeps.later(function()
+  MiniDeps.add({
+    source = "folke/flash.nvim",
+  })
+  vim.keymap.set("n", "<cr>",   function() require("flash").jump() end,              { desc = "Flash" })
+  vim.keymap.set("x", "<cr>",   function() require("flash").jump() end,              { desc = "Flash" })
+  vim.keymap.set("o", "<cr>",   function() require("flash").jump() end,              { desc = "Flash" })
+  vim.keymap.set("n", "<s-cr>", function() require("flash").treesitter() end,        { desc = "Flash Treesitter" })
+  vim.keymap.set("x", "<s-cr>", function() require("flash").treesitter() end,        { desc = "Flash Treesitter" })
+  vim.keymap.set("o", "<s-cr>", function() require("flash").treesitter() end,        { desc = "Flash Treesitter" })
+  vim.keymap.set("o", "r",      function() require("flash").remote() end,            { desc = "Remote Flash" })
+  vim.keymap.set("o", "R",      function() require("flash").treesitter_search() end, { desc = "Treesitter Search" })
+  vim.keymap.set("x", "R",      function() require("flash").treesitter_search() end, { desc = "Treesitter Search" })
+  vim.keymap.set("c", "<c-s>",  function() require("flash").toggle() end,            { desc = "Toggle Flash Search" })
+end)
