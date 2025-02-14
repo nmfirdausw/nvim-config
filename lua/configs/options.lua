@@ -2,6 +2,16 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+if vim.g.neovide then
+  vim.o.guifont = "ComicCodeLigatures Nerd Font:h16"
+  vim.g.neovide_show_border = true
+  vim.g.neovide_floating_shadow = false
+  vim.g.neovide_show_border = true
+  vim.g.neovide_padding_left = 8
+  vim.g.neovide_padding_top = 4
+  vim.g.neovide_input_macos_option_key_is_meta = "both"
+end
+
 -- Runtime options
 vim.opt.rtp:append('/opt/homebrew/opt/fzf')
 
