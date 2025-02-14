@@ -26,3 +26,7 @@ vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
 vim.opt.guicursor = "n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor"
 
+-- Line numbers
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.numberwidth = 1
