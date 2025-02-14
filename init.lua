@@ -1,5 +1,7 @@
 require('config.options')
 
+_G.Utils = require("utils")
+
 local path_package = vim.fn.stdpath("data") .. "/site"
 local mini_path = path_package .. "/pack/deps/start/mini.nvim"
 if not vim.loop.fs_stat(mini_path) then
