@@ -3,14 +3,18 @@ MiniDeps.now(function()
     source = 'nvim-tree/nvim-web-devicons',
   })
 
-  if not Icons.devicons then
+  require('nvim-web-devicons').setup({
+    default = true,
+  })
+
+  if not vim.g.icons then
     MiniDeps.add({
       source = 'projekt0n/circles.nvim',
       depends = { 'kyazdani42/nvim-web-devicons' },
     })
 
     require('circles').setup({
-      icons = { empty = Icons.file, filled = Icons.file, lsp_prefix = Icons.file },
+      icons = { empty = ' 󰑊', filled = ' 󰑊', lsp_prefix = ' 󰑊' },
       lsp = false,
     })
   end

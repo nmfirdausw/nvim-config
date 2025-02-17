@@ -1,18 +1,18 @@
 MiniDeps.now(function()
   local my_prefix = function(fs_entry)
     if fs_entry.fs_type == 'directory' then
-      if Icons.devicons then return ' ' .. Icons.folder, 'MiniFilesDirectory' end
-      return ' ' .. Icons.folder .. ' ', 'MiniFilesDirectory'
+      if vim.g.icons then return Icons.folder, 'MiniFilesDirectory' end
+      return ' ◯ ', 'MiniFilesDirectory'
     end
     local has_devicons, devicons = pcall(require, 'nvim-web-devicons')
-    if not has_devicons then return ' ' .. Icons.file .. ' ', 'MiniFilesFile' end
+    if not has_devicons then return ' 󰑊 ', 'MiniFilesFile' end
 
     local icon, hl = devicons.get_icon(fs_entry.name, nil, { default = false })
-    if Icons.devicons then
-      if icon == nil then return ' ' .. Icons.file .. ' ', 'MiniFilesFile' end
-      return ' ' .. icon .. ' ', hl or 'MiniFilesFile'
+    if vim.g.icons then
+      if icon == nil then return Icons.file, 'MiniFilesFile' end
+      return icon .. ' ', hl or 'MiniFilesFile'
     end
-      return ' ' .. Icons.file .. ' ', hl or 'MiniFilesFile'
+      return ' 󰑊 ', hl or 'MiniFilesFile'
   end
 
   require('mini.files').setup({

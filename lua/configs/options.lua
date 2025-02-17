@@ -15,6 +15,10 @@ end
 -- Runtime options
 vim.opt.rtp:append('/opt/homebrew/opt/fzf')
 
+-- Global options
+vim.g.icons = false
+vim.g.inlay_hints = false
+
 -- General
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.cmdheight = 1
@@ -54,9 +58,6 @@ vim.opt.wrap = false
 vim.opt.pumblend = 10
 vim.opt.pumheight = 15
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
-
--- Global options
-vim.g.inlay_hints_enable = true
 
 -- Indentation
 vim.opt.expandtab = true

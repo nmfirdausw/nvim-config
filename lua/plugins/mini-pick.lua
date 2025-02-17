@@ -2,6 +2,20 @@ MiniDeps.later(function()
   require('mini.visits').setup()
 
   local pick = require('mini.pick')
+
+  local icons = {
+    directory = Icons.folder,
+    file = Icons.file,
+    none = ' ',
+  }
+
+  if not vim.g.icons then
+    icons = {
+      directory = ' ◯ ',
+      file = ' 󰑊 ',
+      none = ' ',
+    }
+  end
   pick.setup({
     window = {
       config = {
@@ -15,7 +29,7 @@ MiniDeps.later(function()
           buf_id,
           items,
           query,
-          { show_icons = true, icons = { directory = '  ', file = ' ◯ ', none = '◯' } }
+          { show_icons = true, icons = { directory = icons.directory, file = icons.file, none = ' ' } }
         )
       end,
     },

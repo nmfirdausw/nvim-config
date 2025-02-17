@@ -32,7 +32,7 @@ MiniDeps.now(function()
   vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
     callback = function()
-      if vim.g.inlay_hints_enable then
+      if vim.g.inlay_hint then
         vim.lsp.inlay_hint.enable()
       end
     end,
@@ -49,6 +49,32 @@ MiniDeps.now(function()
 
   require('mason-lspconfig').setup_handlers(handlers)
 
+  local icons = {}
+
+  if vim.g.icons then
+    icons = {
+      signs = {
+        diagnostics = {
+          error = Icons.signs.diagnostics.error,
+          warn = Icons.signs.diagnostics.warn,
+          hint = Icons.signs.diagnostics.hint,
+          info = Icons.signs.diagnostics.info,
+        },
+      },
+    }
+  else
+    icons = {
+      signs = {
+        diagnostics = {
+          error = '󰑊',
+          warn = '󰑊',
+          hint = '󰑊',
+          info = '󰑊',
+        },
+      },
+    }
+  end
+
   local diagnostics = {
     virtual_text = {
       prefix = function(diagnostic)
@@ -64,10 +90,10 @@ MiniDeps.now(function()
   vim.diagnostic.config({
     signs = {
       text = {
-        [vim.diagnostic.severity.ERROR] = Icons.signs.diagnostics.error,
-        [vim.diagnostic.severity.WARN] = Icons.signs.diagnostics.warn,
-        [vim.diagnostic.severity.HINT] = Icons.signs.diagnostics.hint,
-        [vim.diagnostic.severity.INFO] = Icons.signs.diagnostics.info,
+        [vim.diagnostic.severity.ERROR] = icons.signs.diagnostics.error,
+        [vim.diagnostic.severity.WARN] = icons.signs.diagnostics.warn,
+        [vim.diagnostic.severity.HINT] = icons.signs.diagnostics.hint,
+        [vim.diagnostic.severity.INFO] = icons.signs.diagnostics.info,
       },
     },
     underline = true,
