@@ -1,17 +1,18 @@
-MiniDeps.later(function()
-  MiniDeps.add({
-    source = 'folke/which-key.nvim',
-  })
-  require('which-key').setup({
-    preset = 'helix',
+return {
+  "folke/which-key.nvim",
+  event = "VeryLazy",
+  opts = {
+    preset = "helix",
     win = {
       no_overlap = true,
       col = 0,
+      border = "rounded",
     },
     icons = {
       mappings = false,
     },
     spec = {
+      { "<leader>s", desc = "Search" },
     },
-  })
-end)
+  }
+}
