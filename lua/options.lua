@@ -1,3 +1,4 @@
+vim.g.icons = true
 vim.g.mapleader = vim.keycode("<space>")
 vim.g.maplocalleader = vim.keycode("<cr>")
 vim.g.netrw_banner = 0
