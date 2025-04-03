@@ -3,5 +3,10 @@ return {
   folder = "󰝰 ",
   signs = {
     fillchar = " ",
+    git = {
+      added = ' ',
+      changed = '󰜥 ',
+      deleted = ' ',
+    },
   }
 }

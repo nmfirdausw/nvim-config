@@ -1,3 +1,4 @@
+_G.Utils = require("utils")
 _G.Icons = require("icons")
 
 require("options")
