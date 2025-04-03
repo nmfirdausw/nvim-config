@@ -2,9 +2,18 @@ vim.g.mapleader = vim.keycode("<space>")
 vim.g.maplocalleader = vim.keycode("<cr>")
 vim.g.netrw_banner = 0
 
-vim.opt.clipboard = "unnamedplus"
+-- Neovide config
+if vim.g.neovide then
+  vim.o.guifont = "ComicCodeLigatures Nerd Font:h16"
+  vim.g.neovide_show_border = true
+  vim.g.neovide_floating_shadow = false
+  vim.g.neovide_show_border = true
+  vim.g.neovide_padding_left = 8
+  vim.g.neovide_padding_top = 4
+  vim.g.neovide_input_macos_option_key_is_meta = "both"
+end
 
-- General
+-- General
 vim.opt.clipboard = "unnamedplus"
 vim.opt.cmdheight = 1
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
