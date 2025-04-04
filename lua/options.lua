@@ -26,6 +26,7 @@ vim.opt.listchars = {
     extends = "»",
     precedes = "«",
 }
+vim.opt.laststatus = 3
 vim.opt.diffopt:append("linematch:60")
 vim.opt.number = true
 vim.opt.numberwidth = 1
