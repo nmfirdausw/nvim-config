@@ -8,6 +8,7 @@
   "nvim-ufo": { "branch": "main", "commit": "c15fed422506a130a62e5e79c2d754392231d7d8" },
   "nvim-web-devicons": { "branch": "master", "commit": "4c3a5848ee0b09ecdea73adcd2a689190aeb728c" },
   "oil.nvim": { "branch": "master", "commit": "302bbaceeafc690e6419e0c8296e804d60cb9446" },
+  "oklch-color-picker.nvim": { "branch": "master", "commit": "34bba6298b718a2dedb6dc56be155e257a3412de" },
   "promise-async": { "branch": "main", "commit": "119e8961014c9bfaf1487bf3c2a393d254f337e2" },
   "statuscol.nvim": { "branch": "main", "commit": "c399884e8f64019ec9bb581251f9710915b7f996" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" }
