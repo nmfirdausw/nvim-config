@@ -16,30 +16,6 @@ return {
 		require("nvim-treesitter.install").update({ with_sync = true })()
 	end,
 	opts = {
-		ensure_installed = {
-			"bash",
-			"blade",
-			"c",
-			"css",
-			"html",
-			"javascript",
-			"jsdoc",
-			"json",
-			"lua",
-			"markdown",
-			"markdown_inline",
-			"php",
-			"php_only",
-			"phpdoc",
-			"query",
-			"scheme",
-			"sql",
-			"twig",
-			"vim",
-			"vimdoc",
-			"xml",
-			"yaml",
-		},
 		auto_install = true,
 		indent = { enable = true },
 		highlight = {
@@ -56,9 +32,9 @@ return {
 			enable = true,
 			keymaps = {
 				init_selection = "<C-i>",
-				node_incremental = "<C-i>",
+				node_incremental = "v",
 				scope_incremental = false,
-				node_decremental = "<C-d>",
+				node_decremental = "V",
 			},
 		},
 	},
@@ -71,17 +47,15 @@ return {
 				files = {
 					"src/parser.c",
 				},
-				branch = "main",
-				generate_requires_npm = true,
-				requires_generate_from_grammar = true,
+				branch = "tree-sitter-upgrade-dev",
 			},
 			filetype = "blade",
 		}
 
 		require("nvim-treesitter.configs").setup(opts)
 
-		vim.keymap.set("n", "<leader>it", vim.treesitter.inspect_tree)
-		vim.keymap.set("n", "<leader>i", vim.show_pos)
+		vim.keymap.set("n", "<leader>it", vim.treesitter.inspect_tree, { desc = "Syntax tree" })
+		vim.keymap.set("n", "<leader>ih", vim.show_pos, { desc = "Highlight" })
 	end,
 	dependencies = {
 		"windwp/nvim-ts-autotag",
