@@ -4,10 +4,11 @@ vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 
 -- Visual and display
+vim.g.border = "rounded"
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
-vim.opt.wrap = false
 vim.opt.fillchars:append({ eob = " " })
+vim.opt.wrap = false
 
 -- Behaviour
 vim.opt.splitright = true
