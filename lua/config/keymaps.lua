@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 require("which-key").setup({
   preset = "helix",
   win = {
@@ -9,5 +11,6 @@ require("which-key").setup({
     mappings = false,
   },
   spec = {
+    { "<leader>t", desc = "Toggle" },
   },
 })
