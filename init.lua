@@ -1,4 +1,5 @@
 require("config.options")
+require("config.dependencies")
 require("config.keymaps")
 require("config.formatting")
 require("config.treesitter")
