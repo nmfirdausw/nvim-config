@@ -62,7 +62,7 @@ vim.keymap.set("n", "K", function()
   end
 end, { desc = "Hover or Peek" })
 
-vim.keymap.set("n", "<leader>tF", function()
+vim.keymap.set("n", "<leader>tz", function()
   vim.opt.foldenable = not vim.opt.foldenable:get()
   local status = vim.opt.foldenable:get() and "enabled" or "disabled"
   print("Folding " .. status)
