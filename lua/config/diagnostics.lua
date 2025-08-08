@@ -16,6 +16,9 @@ vim.diagnostic.config({
   virtual_lines = {
     current_line = true,
   },
+  float = {
+    border = vim.g.border,
+  },
 })
 
 vim.api.nvim_create_autocmd("ModeChanged", {

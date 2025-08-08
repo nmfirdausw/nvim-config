@@ -56,11 +56,23 @@ require("ufo").setup({
 })
 
 vim.keymap.set("n", "K", function()
+  -- First priority: check if there's a fold under cursor
   local winid = require("ufo").peekFoldedLinesUnderCursor()
-  if not winid then
-    vim.lsp.buf.hover()
+  if winid then
+    return
   end
-end, { desc = "Hover or Peek" })
+  
+  -- Second priority: check if there are diagnostics under cursor
+  local line = vim.api.nvim_win_get_cursor(0)[1] - 1
+  local diagnostics = vim.diagnostic.get(0, { lnum = line })
+  if #diagnostics > 0 then
+    vim.diagnostic.open_float()
+    return
+  end
+  
+  -- Third priority: show LSP hover
+  vim.lsp.buf.hover()
+end, { desc = "Fold/Diagnostics/Hover" })
 
 vim.keymap.set("n", "<leader>tz", function()
   vim.opt.foldenable = not vim.opt.foldenable:get()
