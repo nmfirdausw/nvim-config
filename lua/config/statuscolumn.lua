@@ -15,7 +15,11 @@ local statuscolumn = function()
   end
 
   if vim.opt.signcolumn:get() == "no" then
-    return statuscolumn .. " "
+    if vim.opt.number:get() or vim.opt.relativenumber:get() then
+      return statuscolumn .. " "
+    else
+      return statuscolumn .. ""
+    end
   end
 
   if vim.opt.foldenable:get() then
@@ -48,12 +52,16 @@ vim.o.statuscolumn = "%{%v:lua._G.StatusColumn()%}"
 vim.keymap.set("n", "<leader>tn", function()
   vim.opt.number = not vim.opt.number:get()
   local status = vim.opt.number:get() and "enabled" or "disabled"
+  vim.cmd("redraw")
+  vim.cmd("edit")
   print("Line numbers " .. status)
 end, { desc = "Line numbers" })
 
 vim.keymap.set("n", "<leader>tr", function()
   vim.opt.relativenumber = not vim.opt.relativenumber:get()
   local status = vim.opt.relativenumber:get() and "enabled" or "disabled"
+  vim.cmd("redraw")
+  vim.cmd("edit")
   print("Relative line numbers " .. status)
 end, { desc = "Relative numbers" })
 
@@ -62,17 +70,16 @@ vim.keymap.set("n", "<leader>ts", function()
   if current == "yes" then
     vim.opt.signcolumn = "no"
     print("Sign column disabled")
-  elseif current == "no" then
-    vim.opt.signcolumn = "auto"
-    print("Sign column set to auto")
   else
     vim.opt.signcolumn = "yes"
     print("Sign column enabled")
   end
+  vim.cmd("redraw")
+  vim.cmd("edit")
 end, { desc = "Sign column" })
 
 -- Disable statuscolumn for help file
-vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
+vim.api.nvim_create_autocmd("BufEnter", {
   callback = function()
     if vim.bo.buftype == "help" then
       vim.opt_local.statuscolumn = ""
