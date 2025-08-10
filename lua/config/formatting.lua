@@ -50,5 +50,5 @@ end, { desc = "Format" })
 vim.keymap.set("n", "<leader>tf", function()
   vim.g.format_on_save = not vim.g.format_on_save
   local status = vim.g.format_on_save and "enabled" or "disabled"
-  print("Format on save " .. status)
+  vim.notify("Format on save " .. status)
 end, { desc = "Format on save" })

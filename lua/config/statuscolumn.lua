@@ -52,30 +52,24 @@ vim.o.statuscolumn = "%{%v:lua._G.StatusColumn()%}"
 vim.keymap.set("n", "<leader>tn", function()
   vim.opt.number = not vim.opt.number:get()
   local status = vim.opt.number:get() and "enabled" or "disabled"
-  vim.cmd("redraw")
-  vim.cmd("edit")
-  print("Line numbers " .. status)
+  vim.notify("Line numbers " .. status)
 end, { desc = "Line numbers" })
 
 vim.keymap.set("n", "<leader>tr", function()
   vim.opt.relativenumber = not vim.opt.relativenumber:get()
   local status = vim.opt.relativenumber:get() and "enabled" or "disabled"
-  vim.cmd("redraw")
-  vim.cmd("edit")
-  print("Relative line numbers " .. status)
+  vim.notify("Relative line numbers " .. status)
 end, { desc = "Relative numbers" })
 
 vim.keymap.set("n", "<leader>ts", function()
   local current = vim.opt.signcolumn:get()
   if current == "yes" then
     vim.opt.signcolumn = "no"
-    print("Sign column disabled")
+    vim.notify("Sign column disabled")
   else
     vim.opt.signcolumn = "yes"
-    print("Sign column enabled")
+    vim.notify("Sign column enabled")
   end
-  vim.cmd("redraw")
-  vim.cmd("edit")
 end, { desc = "Sign column" })
 
 -- Disable statuscolumn for help file

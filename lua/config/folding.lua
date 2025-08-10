@@ -77,5 +77,5 @@ end, { desc = "Fold/Diagnostics/Hover" })
 vim.keymap.set("n", "<leader>tz", function()
   vim.opt.foldenable = not vim.opt.foldenable:get()
   local status = vim.opt.foldenable:get() and "enabled" or "disabled"
-  print("Folding " .. status)
+  vim.notify("Folding " .. status)
 end, { desc = "Folding" })

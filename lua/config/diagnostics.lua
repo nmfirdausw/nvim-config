@@ -67,7 +67,7 @@ vim.keymap.set("n", "<leader>td", function()
         current_line = true,
       },
     })
-    print("Diagnostics enabled")
+    vim.notify("Diagnostics enabled")
   else
     vim.diagnostic.config({
       signs = false,
@@ -75,6 +75,6 @@ vim.keymap.set("n", "<leader>td", function()
       virtual_lines = false,
       virtual_text = false,
     })
-    print("Diagnostics disabled")
+    vim.notify("Diagnostics disabled")
   end
 end, { desc = "Diagnostics" })
