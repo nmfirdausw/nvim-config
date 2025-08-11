@@ -53,13 +53,13 @@ vim.keymap.set("n", "<leader>tn", function()
   vim.opt.number = not vim.opt.number:get()
   local status = vim.opt.number:get() and "enabled" or "disabled"
   vim.notify("Line numbers " .. status)
-end, { desc = "Line numbers" })
+end, { desc = "Toggle line numbers" })
 
 vim.keymap.set("n", "<leader>tr", function()
   vim.opt.relativenumber = not vim.opt.relativenumber:get()
   local status = vim.opt.relativenumber:get() and "enabled" or "disabled"
   vim.notify("Relative line numbers " .. status)
-end, { desc = "Relative numbers" })
+end, { desc = "Toggle relative numbers" })
 
 vim.keymap.set("n", "<leader>ts", function()
   local current = vim.opt.signcolumn:get()
@@ -70,7 +70,7 @@ vim.keymap.set("n", "<leader>ts", function()
     vim.opt.signcolumn = "yes"
     vim.notify("Sign column enabled")
   end
-end, { desc = "Sign column" })
+end, { desc = "Toggle sign column" })
 
 -- Disable statuscolumn for help file
 vim.api.nvim_create_autocmd("BufEnter", {

@@ -72,10 +72,10 @@ vim.keymap.set("n", "K", function()
 
   -- Third priority: show LSP hover
   vim.lsp.buf.hover()
-end, { desc = "Fold/Diagnostics/Hover" })
+end, { desc = "Peek fold/diagnostics/hover" })
 
 vim.keymap.set("n", "<leader>tz", function()
   vim.opt.foldenable = not vim.opt.foldenable:get()
   local status = vim.opt.foldenable:get() and "enabled" or "disabled"
   vim.notify("Folding " .. status)
-end, { desc = "Folding" })
+end, { desc = "Toggle folding" })

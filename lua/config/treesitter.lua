@@ -32,4 +32,4 @@ vim.keymap.set("n", "<leader>ts", function()
     vim.treesitter.start(buf)
     vim.notify("Treesitter syntax highlighting enabled", vim.log.levels.INFO)
   end
-end, { desc = "Syntax highlighting" })
+end, { desc = "Toggle syntax highlighting" })

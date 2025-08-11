@@ -77,4 +77,4 @@ vim.keymap.set("n", "<leader>td", function()
     })
     vim.notify("Diagnostics disabled")
   end
-end, { desc = "Diagnostics" })
+end, { desc = "Toggle diagnostics" })

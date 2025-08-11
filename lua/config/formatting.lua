@@ -35,7 +35,7 @@ vim.keymap.set("n", "<leader>bf", function()
     lsp_format = "fallback",
     timeout_ms = 2000,
   })
-end, { desc = "Format" })
+end, { desc = "Format buffer" })
 
 vim.keymap.set("v", "<leader>f", function()
   require("conform").format({
@@ -45,10 +45,10 @@ vim.keymap.set("v", "<leader>f", function()
     },
     timeout_ms = 2000,
   })
-end, { desc = "Format" })
+end, { desc = "Format selection" })
 
 vim.keymap.set("n", "<leader>tf", function()
   vim.g.format_on_save = not vim.g.format_on_save
   local status = vim.g.format_on_save and "enabled" or "disabled"
   vim.notify("Format on save " .. status)
-end, { desc = "Format on save" })
+end, { desc = "Toggle format on save" })

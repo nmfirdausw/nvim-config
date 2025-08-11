@@ -26,9 +26,9 @@ require("which-key").setup({
 })
 
 -- Buffer keymaps
-vim.keymap.set("n", "<leader>bx", ":bdelete<CR>", { desc = "Delete" })
+vim.keymap.set("n", "<leader>bx", ":bdelete<CR>", { desc = "Delete buffer" })
 
 -- System clipboard keymaps
-vim.keymap.set("n", "<leader>y", "\"+yy", { desc = "Copy line to system clipboard" })
-vim.keymap.set("v", "<leader>y", "\"+y", { desc = "Copy selection to system clipboard" })
-vim.keymap.set("n", "<leader>p", "\"+p", { desc = "Paste from system clipboard" })
+vim.keymap.set("n", "<leader>y", "\"+yy", { desc = "Copy line to clipboard" })
+vim.keymap.set("v", "<leader>y", "\"+y", { desc = "Copy selection to clipboard" })
+vim.keymap.set("n", "<leader>p", "\"+p", { desc = "Paste from clipboard" })
