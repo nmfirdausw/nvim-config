@@ -1,7 +1,7 @@
-vim.g.neovide_padding_bottom = 0
-vim.g.neovide_padding_left = 0
-vim.g.neovide_padding_right = 0
-vim.g.neovide_padding_top = 0
+vim.g.neovide_padding_bottom = 2
+vim.g.neovide_padding_left = 2
+vim.g.neovide_padding_right = 2
+vim.g.neovide_padding_top = 2
 
 vim.g.neovide_floating_shadow = false
 vim.g.neovide_floating_corner_radius = 0.0
