@@ -14,7 +14,6 @@ require("config.lsp")
 require("config.diagnostics")
 require("config.folding")
 require("config.statuscolumn")
-require("config.file-manager")
 require("config.snacks")
 
 if vim.g.neovide then

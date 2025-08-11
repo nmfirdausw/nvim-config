@@ -61,7 +61,7 @@ vim.keymap.set("n", "K", function()
   if winid then
     return
   end
-  
+
   -- Second priority: check if there are diagnostics under cursor
   local line = vim.api.nvim_win_get_cursor(0)[1] - 1
   local diagnostics = vim.diagnostic.get(0, { lnum = line })
@@ -69,7 +69,7 @@ vim.keymap.set("n", "K", function()
     vim.diagnostic.open_float()
     return
   end
-  
+
   -- Third priority: show LSP hover
   vim.lsp.buf.hover()
 end, { desc = "Fold/Diagnostics/Hover" })
