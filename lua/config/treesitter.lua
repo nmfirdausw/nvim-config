@@ -22,14 +22,21 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+
 vim.keymap.set("n", "<leader>ts", function()
   local buf = vim.api.nvim_get_current_buf()
 
-  if vim.treesitter.highlighter.active[buf] then
-    vim.treesitter.stop(buf)
-    vim.notify("Treesitter syntax highlighting disabled", vim.log.levels.INFO)
-  else
-    vim.treesitter.start(buf)
-    vim.notify("Treesitter syntax highlighting enabled", vim.log.levels.INFO)
+  local success, err = pcall(function()
+    if vim.treesitter.highlighter.active[buf] then
+      vim.treesitter.stop(buf)
+      vim.notify("Treesitter syntax highlighting disabled", vim.log.levels.INFO)
+    else
+      vim.treesitter.start(buf)
+      vim.notify("Treesitter syntax highlighting enabled", vim.log.levels.INFO)
+    end
+  end)
+  
+  if not success then
+    vim.notify("Treesitter error: " .. Utils.clean_error(err), vim.log.levels.ERROR)
   end
 end, { desc = "Toggle syntax highlighting" })
