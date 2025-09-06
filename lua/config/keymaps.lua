@@ -12,6 +12,9 @@ require("which-key").setup({
   icons = {
     mappings = false,
   },
+  spec = {
+    { "<leader>t", desc = "Toggle" },
+  },
 })
 
 -- Buffer keymaps
