@@ -22,7 +22,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-
 vim.keymap.set("n", "<leader>ts", function()
   local buf = vim.api.nvim_get_current_buf()
 
@@ -35,7 +34,7 @@ vim.keymap.set("n", "<leader>ts", function()
       vim.notify("Treesitter syntax highlighting enabled", vim.log.levels.INFO)
     end
   end)
-  
+
   if not success then
     vim.notify("Treesitter error: " .. Utils.clean_error(err), vim.log.levels.ERROR)
   end

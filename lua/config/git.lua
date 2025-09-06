@@ -88,7 +88,12 @@ require("gitsigns").setup({
     vim.keymap.set("n", "<leader>gdl", gitsigns.toggle_linehl, { desc = "Toggle line highlight", buffer = bufnr })
     vim.keymap.set("n", "<leader>gdn", gitsigns.toggle_numhl, { desc = "Toggle number highlight", buffer = bufnr })
     vim.keymap.set("n", "<leader>gds", gitsigns.toggle_signs, { desc = "Toggle git signs", buffer = bufnr })
-    vim.keymap.set("n", "<leader>tgb", gitsigns.toggle_current_line_blame, { desc = "Toggle blame line", buffer = bufnr })
+    vim.keymap.set(
+      "n",
+      "<leader>tgb",
+      gitsigns.toggle_current_line_blame,
+      { desc = "Toggle blame line", buffer = bufnr }
+    )
     vim.keymap.set("n", "<leader>tgd", gitsigns.toggle_deleted, { desc = "Toggle deleted lines", buffer = bufnr })
     vim.keymap.set("n", "<leader>tgw", gitsigns.toggle_word_diff, { desc = "Toggle word diff", buffer = bufnr })
     vim.keymap.set("n", "<leader>tgl", gitsigns.toggle_linehl, { desc = "Toggle line highlight", buffer = bufnr })
@@ -98,4 +103,3 @@ require("gitsigns").setup({
     vim.keymap.set("n", "<leader>gdb", gitsigns.diffthis, { desc = "Diff buffer", buffer = bufnr })
   end,
 })
-
