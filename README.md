@@ -49,7 +49,7 @@ A minimal Neovim configuration focused on Lua development with modern features.
     ├── lsp.lua                # LSP setup
     ├── neovide.lua            # Neovide GUI settings
     ├── options.lua            # Neovim options
-    ├── snacks.lua             # Notifications
+    ├── snacks.lua             # Picker, notifications, and utilities
     ├── statuscolumn.lua       # Custom status column
     ├── treesitter.lua         # Syntax highlighting
     └── utils.lua              # Utility functions
@@ -106,6 +106,7 @@ formatters_by_ft = {
 
 ## Features
 
+- **File Picker**: Built-in file explorer and fuzzy finder with live preview
 - **Smart Diagnostics**: Mode-aware display with toggle functionality
 - **Advanced Folding**: Enhanced folding with preview capabilities  
 - **Git Integration**: Visual git signs and hunk operations
