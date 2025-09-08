@@ -9,6 +9,9 @@ local parsers = {
   "lua",
   "luadoc",
   "luap",
+  "html",
+  "php",
+  "blade",
 }
 
 require("nvim-treesitter").install(parsers)
