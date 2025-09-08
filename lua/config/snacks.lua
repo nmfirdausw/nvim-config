@@ -304,3 +304,11 @@ vim.keymap.set("n", "<leader>bb", function()
   closePicker()
   Snacks.picker.buffers()
 end, { desc = "Switch buffer" })
+
+vim.keymap.set("n", "<leader>bx", function()
+  Snacks.bufdelete()
+end, { desc = "Delete buffer" })
+
+vim.keymap.set("n", "<leader>bX", function()
+  Snacks.bufdelete.all()
+end, { desc = "Delete buffer" })
