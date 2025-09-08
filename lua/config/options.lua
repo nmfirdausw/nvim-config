@@ -1,3 +1,6 @@
+-- Global options
+vim.g.border = "rounded"
+
 -- Indentation
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
