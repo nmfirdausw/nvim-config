@@ -16,6 +16,7 @@ vim.opt.wrap = false
 -- Behaviour
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+vim.opt.clipboard = "unnamedplus"
 
 -- History and backup
 vim.opt.backup = false
