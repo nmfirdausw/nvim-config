@@ -12,8 +12,8 @@ A minimal Neovim configuration focused on Lua development with modern features.
 ### Optional but Recommended
 - **ripgrep** (`rg`) - Fast file searching
 - **fd** (`fd-find`) - Fast file finding
-- **stylua** - Lua code formatter
-- **lua-language-server** - Lua LSP server
+
+> **Note**: Language servers and formatters are automatically installed via Mason. Manual installation is not required.
 
 ## Installation
 
@@ -37,16 +37,19 @@ A minimal Neovim configuration focused on Lua development with modern features.
 ```
 ~/.config/nvim/
 ├── init.lua                    # Main entry point
-├── lsp/
-│   └── lua_ls.lua             # Lua LSP configuration
 └── lua/config/
+    ├── completion.lua          # Completion system (blink.cmp)
+    ├── copilot.lua            # GitHub Copilot integration  
     ├── dependencies.lua        # Plugin dependencies only
     ├── diagnostics.lua         # Diagnostic settings
     ├── folding.lua            # Code folding
     ├── formatting.lua         # Code formatting
     ├── git.lua                # Git integration
+    ├── icons.lua              # Centralized icon definitions
     ├── keymaps.lua            # Key mappings
     ├── lsp.lua                # LSP setup
+    ├── mason.lua              # Mason tool management
+    ├── mini.lua               # Mini.ai text objects
     ├── neovide.lua            # Neovide GUI settings
     ├── options.lua            # Neovim options
     ├── snacks.lua             # Picker, notifications, and utilities
@@ -59,25 +62,22 @@ A minimal Neovim configuration focused on Lua development with modern features.
 
 ### 1. Add LSP Server
 
-Create LSP configuration in `lsp/`:
+Add the server name to Mason's ensure_installed list in `lua/config/mason.lua`:
 ```lua
--- lsp/tsserver.lua
-return {
-  cmd = { "typescript-language-server", "--stdio" },
-  filetypes = { "typescript", "javascript" },
-  root_markers = { "package.json", "tsconfig.json", ".git" },
-}
-```
-
-Enable LSP in `lua/config/lsp.lua`:
-```lua
-vim.lsp.enable({
-  "lua_ls",
-  "tsserver", -- Add your new LSP
+require("mason-tool-installer").setup({
+  ensure_installed = {
+    "css-lsp",
+    "html-lsp", 
+    "lua-language-server",
+    "typescript-language-server", -- Add new LSP server
+    "stylua",
+  },
 })
 ```
 
-For LSP server installation and configuration details, see: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
+Mason will automatically install and configure the LSP server. No manual configuration files needed!
+
+For available Mason packages, see: https://mason-registry.dev/registry/list
 
 ### 2. Add Treesitter Parser
 
@@ -87,6 +87,9 @@ local parsers = {
   "lua",
   "luadoc", 
   "luap",
+  "html",
+  "css",
+  "scss",
   "typescript", -- Add new parser
   "javascript",
 }
@@ -94,23 +97,33 @@ local parsers = {
 
 ### 3. Add Formatter
 
-In `lua/config/formatting.lua`, add to formatters:
-```lua
-formatters_by_ft = {
-  lua = { "stylua" },
-  typescript = { "prettierd" }, -- Add formatter
-  javascript = { "prettierd" },
-  python = { "black" },
-}
-```
+1. Add formatter to Mason's ensure_installed list in `lua/config/mason.lua`:
+   ```lua
+   ensure_installed = {
+     -- ... other tools
+     "prettierd", -- Add formatter
+   }
+   ```
+
+2. Configure formatter in `lua/config/formatting.lua`:
+   ```lua
+   formatters_by_ft = {
+     lua = { "stylua" },
+     typescript = { "prettierd" }, -- Add formatter
+     javascript = { "prettierd" },
+   }
+   ```
 
 ## Features
 
+- **Automatic Tool Management**: Mason handles LSP servers, formatters, and linters installation
 - **File Picker**: Built-in file explorer and fuzzy finder with live preview
+- **Modern Completion**: Blink.cmp with snippet support and AI integration (Copilot)
 - **Smart Diagnostics**: Mode-aware display with toggle functionality
 - **Advanced Folding**: Enhanced folding with preview capabilities  
 - **Git Integration**: Visual git signs and hunk operations
-- **Code Formatting**: Automatic formatting with stylua integration
+- **Code Formatting**: Automatic formatting with Mason-managed tools
+- **Enhanced Text Objects**: Mini.ai for improved text manipulation
 - **Custom UI**: Clean status column and notification system
 
 ## Customization
