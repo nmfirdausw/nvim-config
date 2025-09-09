@@ -1,7 +1,10 @@
 vim.lsp.enable({
-  "lua_ls",
-  "intelephense",
+  "css_variables",
+  "cssls",
+  "cssmodules_ls",
   "html",
+  "intelephense",
+  "lua_ls",
 })
 
 vim.api.nvim_create_autocmd("LspProgress", {
