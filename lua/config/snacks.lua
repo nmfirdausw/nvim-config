@@ -104,6 +104,10 @@ require("snacks").setup({
       trace = "?",
     },
   },
+  explorer = {
+    enabled = true,
+    replace_netrw = true,
+  },
   picker = {
     win = {
       input = {
