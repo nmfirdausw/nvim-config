@@ -9,6 +9,17 @@ require("mason-lspconfig").setup({
   },
 })
 
+-- LSP setting
+vim.lsp.config["lua_ls"] = {
+  settings = {
+    Lua = {
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+    },
+  },
+}
+
 vim.api.nvim_create_autocmd("LspProgress", {
   ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
   callback = function(ev)
