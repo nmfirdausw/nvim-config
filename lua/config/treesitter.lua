@@ -12,6 +12,8 @@ local parsers = {
   "html",
   "php",
   "blade",
+  "css",
+  "scss",
 }
 
 require("nvim-treesitter").install(parsers)
