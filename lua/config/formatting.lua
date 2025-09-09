@@ -9,6 +9,7 @@ require("conform").setup({
     css = { "trettierd" },
     scss = { "prettierd" },
     html = { "prettierd" },
+    blade = { "blade-formatter" },
   },
   formatters = {
     stylua = {

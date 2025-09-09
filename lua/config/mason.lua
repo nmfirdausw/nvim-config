@@ -16,13 +16,14 @@ require("mason").setup({
 
 require("mason-tool-installer").setup({
   ensure_installed = {
+    "blade-formatter",
     "css-lsp",
     "css-variables-language-server",
     "cssmodules-language-server",
     "html-lsp",
     "lua-language-server",
-    "stylua",
     "prettierd",
+    "stylua",
   },
   auto_update = true,
   run_on_start = true,
