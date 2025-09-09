@@ -22,6 +22,7 @@ require("mason-tool-installer").setup({
     "html-lsp",
     "lua-language-server",
     "stylua",
+    "prettierd",
   },
   auto_update = true,
   run_on_start = true,
