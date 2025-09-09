@@ -6,6 +6,9 @@ vim.g.format_on_save = true
 require("conform").setup({
   formatters_by_ft = {
     lua = { "stylua" },
+    css = { "trettierd" },
+    scss = { "prettierd" },
+    html = { "prettierd" },
   },
   formatters = {
     stylua = {
