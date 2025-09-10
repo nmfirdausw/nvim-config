@@ -10,6 +10,7 @@ vim.opt.tabstop = 2
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
 vim.opt.fillchars:append({ eob = " " })
+vim.opt.guifont = { "ComicCodeLigatures Nerd Font", ":h12" }
 vim.opt.laststatus = 3
 vim.opt.wrap = false
 
