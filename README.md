@@ -1,6 +1,6 @@
 # Neovim Configuration
 
-A minimal Neovim configuration focused on Lua development with modern features.
+A modern Neovim configuration with comprehensive language support, featuring C#, TypeScript, Angular, PHP, and more.
 
 ## Dependencies
 
@@ -43,15 +43,17 @@ A minimal Neovim configuration focused on Lua development with modern features.
     ├── dependencies.lua        # Plugin dependencies only
     ├── diagnostics.lua         # Diagnostic settings
     ├── folding.lua            # Code folding
-    ├── formatting.lua         # Code formatting
+    ├── formatting.lua         # Code formatting (biome, stylua, prettierd)
     ├── git.lua                # Git integration
     ├── icons.lua              # Centralized icon definitions
     ├── keymaps.lua            # Key mappings
-    ├── lsp.lua                # LSP setup
+    ├── linting.lua            # Code linting with nvim-lint
+    ├── lsp.lua                # LSP setup and configuration
     ├── mason.lua              # Mason tool management
     ├── mini.lua               # Mini.ai text objects
     ├── neovide.lua            # Neovide GUI settings
     ├── options.lua            # Neovim options
+    ├── roslyn.lua             # C# Roslyn LSP configuration
     ├── snacks.lua             # Picker, notifications, and utilities
     ├── statuscolumn.lua       # Custom status column
     ├── treesitter.lua         # Syntax highlighting
@@ -66,11 +68,19 @@ Add the server name to Mason's ensure_installed list in `lua/config/mason.lua`:
 ```lua
 require("mason-tool-installer").setup({
   ensure_installed = {
+    "angular-language-server",
+    "biome",
+    "blade-formatter",
     "css-lsp",
-    "html-lsp", 
+    "css-variables-language-server",
+    "cssmodules-language-server",
+    "html-lsp",
     "lua-language-server",
-    "typescript-language-server", -- Add new LSP server
+    "prettierd",
+    "roslyn",                      -- C# LSP server
+    "rzls",                        -- Razor LSP server
     "stylua",
+    "typescript-language-server",  -- TypeScript LSP server
   },
 })
 ```
@@ -84,14 +94,15 @@ For available Mason packages, see: https://mason-registry.dev/registry/list
 In `lua/config/treesitter.lua`, add to parsers list:
 ```lua
 local parsers = {
+  "blade",                       -- Laravel Blade templates
+  "c_sharp",                     -- C# support
+  "css",
+  "html",
   "lua",
   "luadoc", 
   "luap",
-  "html",
-  "css",
-  "scss",
-  "typescript", -- Add new parser
-  "javascript",
+  "php",
+  "razor",                       -- ASP.NET Razor pages
 }
 ```
 
@@ -108,23 +119,67 @@ local parsers = {
 2. Configure formatter in `lua/config/formatting.lua`:
    ```lua
    formatters_by_ft = {
+     angular = { "prettierd" },
+     blade = { "blade-formatter" },
+     css = { "biome-check" },
+     html = { "prettierd" },
+     javascript = { "biome-check" },
+     json = { "biome-check" },
      lua = { "stylua" },
-     typescript = { "prettierd" }, -- Add formatter
-     javascript = { "prettierd" },
+     typescript = { "biome-check" },
    }
    ```
 
 ## Features
 
+### Core Features
 - **Automatic Tool Management**: Mason handles LSP servers, formatters, and linters installation
 - **File Picker**: Built-in file explorer and fuzzy finder with live preview
 - **Modern Completion**: Blink.cmp with snippet support and AI integration (Copilot)
 - **Smart Diagnostics**: Mode-aware display with toggle functionality
 - **Advanced Folding**: Enhanced folding with preview capabilities  
 - **Git Integration**: Visual git signs and hunk operations
-- **Code Formatting**: Automatic formatting with Mason-managed tools
+- **Code Linting**: Automatic linting with nvim-lint on buffer write
 - **Enhanced Text Objects**: Mini.ai for improved text manipulation
 - **Custom UI**: Clean status column and notification system
+
+### Language Support
+- **C# Development**: Full Roslyn LSP integration with inlay hints and code lens
+- **ASP.NET Razor**: Complete Razor page support with rzls
+- **TypeScript/JavaScript**: Biome formatter and TypeScript LSP
+- **Angular**: Dedicated Angular language server support
+- **PHP/Laravel**: Blade template formatting and PHP LSP
+- **Web Technologies**: HTML, CSS, JSON with appropriate formatters
+- **Lua**: Optimized for Neovim configuration development
+
+### Code Quality
+- **Multi-formatter Support**: Biome, Prettier, Stylua, Blade formatter
+- **Format on Save**: Automatic code formatting with language-specific tools
+- **Consistent Styling**: Unified formatting rules across all supported languages
+
+## Language-Specific Configuration
+
+### C# Development
+
+This configuration includes comprehensive C# support through Roslyn LSP:
+
+- **Automatic Setup**: Roslyn and rzls are automatically installed via Mason
+- **Inlay Hints**: Type hints for implicit variables, object creation, and parameters
+- **Code Lens**: Reference counting and method signatures
+- **Razor Support**: Full ASP.NET Razor page editing with syntax highlighting
+- **Filetype Detection**: Automatic detection of `.razor` and `.cshtml` files
+
+The C# configuration is handled by `lua/config/roslyn.lua` and includes:
+- Custom Mason registry for Roslyn packages
+- Automatic exclusion from mason-lspconfig to prevent conflicts
+- Comprehensive inlay hint settings for better code readability
+
+### Web Development
+
+- **Biome Integration**: Fast formatting and linting for TypeScript, JavaScript, CSS, and JSON
+- **Angular Support**: Dedicated language server for Angular projects
+- **Blade Templates**: Laravel Blade template formatting and syntax highlighting
+- **Multi-CSS Support**: CSS, SCSS with appropriate language servers
 
 ## Customization
 
