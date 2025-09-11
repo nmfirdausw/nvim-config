@@ -20,6 +20,8 @@ require("mason").setup({
 
 require("mason-tool-installer").setup({
   ensure_installed = {
+    "angular-language-server",
+    "biome",
     "blade-formatter",
     "css-lsp",
     "css-variables-language-server",
@@ -30,6 +32,7 @@ require("mason-tool-installer").setup({
     "roslyn",
     "rzls",
     "stylua",
+    "typescript-language-server",
   },
   auto_update = true,
   run_on_start = true,
