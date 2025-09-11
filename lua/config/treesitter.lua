@@ -6,15 +6,24 @@ vim.pack.add({
 })
 
 local parsers = {
+  "blade",
+  "c_sharp",
+  "css",
+  "html",
   "lua",
   "luadoc",
   "luap",
-  "html",
   "php",
-  "blade",
-  "css",
+  "razor",
   "scss",
 }
+
+vim.filetype.add({
+  extension = {
+    razor = "razor",
+    cshtml = "razor",
+  },
+})
 
 require("nvim-treesitter").install(parsers)
 
