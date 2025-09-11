@@ -7,13 +7,12 @@ require("conform").setup({
   formatters_by_ft = {
     angular = { "prettierd" },
     blade = { "blade-formatter" },
-    css = { "prettierd" },
+    css = { "biome-check" },
     html = { "prettierd" },
-    javascript = { "biome" },
-    json = { "biome" },
+    javascript = { "biome-check" },
+    json = { "biome-check" },
     lua = { "stylua" },
-    scss = { "prettierd" },
-    typescript = { "biome" },
+    typescript = { "biome-check" },
   },
   formatters = {
     stylua = {
