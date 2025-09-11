@@ -7,7 +7,7 @@ require("conform").setup({
   formatters_by_ft = {
     angular = { "prettierd" },
     blade = { "blade-formatter" },
-    css = { "trettierd" },
+    css = { "prettierd" },
     html = { "prettierd" },
     javascript = { "biome" },
     json = { "biome" },
