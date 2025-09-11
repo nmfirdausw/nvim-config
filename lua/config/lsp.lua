@@ -13,7 +13,7 @@ require("mason-lspconfig").setup({
 })
 
 -- LSP setting
-vim.lsp.config["lua_ls"] = {
+vim.lsp.config("lua_ls", {
   settings = {
     Lua = {
       workspace = {
@@ -21,7 +21,11 @@ vim.lsp.config["lua_ls"] = {
       },
     },
   },
-}
+})
+
+vim.lsp.config("html", {
+  filetypes = { "html", "razor" },
+})
 
 vim.api.nvim_create_autocmd("LspProgress", {
   ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
