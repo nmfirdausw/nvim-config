@@ -15,7 +15,6 @@ local parsers = {
   "luap",
   "php",
   "razor",
-  "scss",
 }
 
 vim.filetype.add({
