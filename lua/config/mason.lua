@@ -12,6 +12,10 @@ require("mason").setup({
       package_uninstalled = "x",
     },
   },
+  registries = {
+    "github:mason-org/mason-registry",
+    "github:Crashdummyy/mason-registry",
+  },
 })
 
 require("mason-tool-installer").setup({
@@ -23,6 +27,8 @@ require("mason-tool-installer").setup({
     "html-lsp",
     "lua-language-server",
     "prettierd",
+    "roslyn",
+    "rzls",
     "stylua",
   },
   auto_update = true,
