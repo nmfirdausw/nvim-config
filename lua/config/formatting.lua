@@ -5,11 +5,15 @@ vim.g.format_on_save = true
 
 require("conform").setup({
   formatters_by_ft = {
-    lua = { "stylua" },
-    css = { "trettierd" },
-    scss = { "prettierd" },
-    html = { "prettierd" },
+    angular = { "prettierd" },
     blade = { "blade-formatter" },
+    css = { "trettierd" },
+    html = { "prettierd" },
+    javascript = { "biome" },
+    json = { "biome" },
+    lua = { "stylua" },
+    scss = { "prettierd" },
+    typescript = { "biome" },
   },
   formatters = {
     stylua = {
