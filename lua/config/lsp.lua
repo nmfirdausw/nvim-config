@@ -5,7 +5,10 @@ vim.pack.add({
 
 require("mason-lspconfig").setup({
   automatic_enable = {
-    exclude = {},
+    exclude = {
+      "roslyn",
+      "rzls",
+    },
   },
 })
 
