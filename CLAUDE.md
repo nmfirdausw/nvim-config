@@ -63,3 +63,5 @@ Use bullet points for commit descriptions when necessary:
 - Key changes or modifications
 - Important notes or context
 - Breaking changes if any
+
+**IMPORTANT**: Never include attribution lines or mentions of AI assistance in commit messages. Keep commit messages clean and professional with only the actual changes described.
