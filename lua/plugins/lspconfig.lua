@@ -14,7 +14,7 @@ return {
     },
   },
   config = function(_, opts)
-    require("mason-lspconfig").setup(opts)
     require("config.lsp")
+    require("mason-lspconfig").setup(opts)
   end,
 }
