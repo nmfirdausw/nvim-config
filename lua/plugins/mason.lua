@@ -40,9 +40,9 @@ return {
       "rzls",
       "stylua",
       "tlint",
-      "tombi",
       "typescript-language-server",
       "yamllint",
+      "taplo",
     },
 
     auto_update = true,
