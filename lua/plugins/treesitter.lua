@@ -16,8 +16,10 @@ return {
 
         if vim.treesitter.highlighter.active[buf] then
           vim.treesitter.stop(buf)
+          vim.notify("Treesitter highlighting disabled for this buffer")
         else
           vim.treesitter.start(buf)
+          vim.notify("Treesitter highlighting enabled for this buffer")
         end
       end,
       desc = "Toggle syntax highlighting",
@@ -25,5 +27,5 @@ return {
   },
   config = function()
     require("config.treesitter")
-  end
+  end,
 }
