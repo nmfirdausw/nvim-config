@@ -1,5 +1,6 @@
 return {
   "folke/which-key.nvim",
+  event = "UiEnter",
   opts = {
     preset = "helix",
     win = {
