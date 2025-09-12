@@ -6,14 +6,18 @@ A modern Neovim configuration with comprehensive language support, featuring C#,
 
 ### Required
 - **Neovim** >= 0.11.0
-- **Node.js** >= 18.0
-- **Git**
+- **Node.js** >= 18.0 - Required for TypeScript/JavaScript language servers
+- **npm** - Node package manager for installing language tools
+- **Git** - Version control system
 
 ### Optional but Recommended
-- **ripgrep** (`rg`) - Fast file searching
-- **fd** (`fd-find`) - Fast file finding
+- **ripgrep** (`rg`) - Fast file searching and content grep
+- **fd** (`fd-find`) - Fast file finding alternative to `find`
+- **luarocks** - Lua package manager for Lua development
+- **PHP** - Required for PHP language server and development
+- **Composer** - PHP dependency manager for PHP projects
 
-> **Note**: Language servers and formatters are automatically installed via Mason. Manual installation is not required.
+> **Note**: Language servers and formatters are automatically installed via Mason. Manual installation of these tools is not required, but having the base runtimes (Node.js, PHP) available will enable full language support.
 
 ## Installation
 
