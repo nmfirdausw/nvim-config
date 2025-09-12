@@ -9,14 +9,7 @@ return {
   },
   dependencies = {
     "mason-org/mason.nvim",
-    cmd = {
-      "Mason",
-      "MasonInstall",
-      "MasonUninstall",
-      "MasonUninstallAll",
-      "MasonLog",
-      "MasonUpdate",
-    },
+    lazy = false,
     opts = {
       registries = {
         "github:mason-org/mason-registry",
