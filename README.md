@@ -6,6 +6,7 @@ A modern Neovim configuration with comprehensive language support, featuring C#,
 
 ### Required
 - **Neovim** >= 0.11.0
+- **Python** >= 3.10 - Required for language server functionality
 - **Node.js** >= 18.0 - Required for TypeScript/JavaScript language servers
 - **npm** - Node package manager for installing language tools
 - **Git** - Version control system
