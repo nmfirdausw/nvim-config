@@ -1,6 +1,7 @@
 -- Global options
 vim.g.border = "rounded"
 vim.g.format_on_save = true
+vim.g.golden_ratio_splits = true
 
 -- Indentation
 vim.opt.expandtab = true
@@ -14,6 +15,9 @@ vim.opt.fillchars:append({ eob = " " })
 vim.opt.guifont = { "ComicCodeLigatures Nerd Font", ":h14" }
 vim.opt.laststatus = 3
 vim.opt.wrap = false
+vim.opt.winminwidth = 10
+vim.opt.winheight = 5
+vim.opt.winminheight = 5
 
 -- Behaviour
 vim.opt.splitright = true
