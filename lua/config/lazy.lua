@@ -6,4 +6,8 @@ require("lazy").setup({
   },
   install = { colorscheme = { "habamax" } },
   checker = { enabled = false },
+  ui = {
+    border = vim.g.border,
+    backdrop = 100,
+  },
 })

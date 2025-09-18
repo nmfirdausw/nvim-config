@@ -11,6 +11,7 @@ return {
       },
       ui = {
         border = vim.g.border,
+        backdrop = 100,
         icons = {
           package_installed = "+",
           package_pending = "!",
