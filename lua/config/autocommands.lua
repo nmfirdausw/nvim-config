@@ -1,5 +1,8 @@
 -- Resize splits to golden ratio
 local resize_splits = function(winid)
+  if not vim.g.golden_ratio_splits then
+    return
+  end
   local columns = vim.opt.columns:get()
   local lines = vim.opt.lines:get() - vim.opt.cmdheight:get() - 1
   local win_config = vim.api.nvim_win_get_config(winid)
@@ -20,7 +23,7 @@ local set_picker_vertical_win = function(winid)
   local main_win_width = vim.api.nvim_win_get_width(winid)
   local columns = vim.opt.columns:get()
   local width = columns - math.floor(columns / 1.618)
-  PickerPosV = columns - width
+  PickerPosV = columns
 
   if main_win_width == columns then
     PickerGoldenV = true
@@ -84,5 +87,7 @@ vim.api.nvim_create_autocmd({ "WinLeave", "WinEnter" }, {
 vim.api.nvim_create_autocmd("VimResized", {
   callback = function()
     resize_splits(MainWin)
+    set_picker_vertical_win(MainWin)
+    set_picker_horizontal_win(MainWin)
   end,
 })
