@@ -70,7 +70,7 @@ return {
 
       vim.keymap.set("n", "<leader>gs", gitsigns.stage_buffer, { desc = "Stage buffer", buffer = bufnr })
       vim.keymap.set("n", "<leader>gs", gitsigns.reset_buffer, { desc = "Reset buffer", buffer = bufnr })
-      vim.keymap.set("n", "<leader>ghu", gitsigns.undo_stage_hunk, { desc = "Undo stage hunk", buffer = bufnr })
+      vim.keymap.set("n", "<leader>ghu", gitsigns.stage_hunk, { desc = "Undo stage hunk", buffer = bufnr })
       vim.keymap.set("n", "<leader>ghp", gitsigns.preview_hunk, { desc = "Preview hunk", buffer = bufnr })
       vim.keymap.set("n", "<leader>ghi", gitsigns.preview_hunk_inline, { desc = "Preview hunk inline", buffer = bufnr })
       vim.keymap.set("n", "<leader>gbb", function()
@@ -85,18 +85,28 @@ return {
         gitsigns.toggle_current_line_blame,
         { desc = "Toggle blame line", buffer = bufnr }
       )
-      vim.keymap.set("n", "<leader>gdd", gitsigns.toggle_deleted, { desc = "Toggle deleted lines", buffer = bufnr })
+      vim.keymap.set(
+        "n",
+        "<leader>gdd",
+        gitsigns.preview_hunk_inline,
+        { desc = "Toggle deleted lines", buffer = bufnr }
+      )
       vim.keymap.set("n", "<leader>gdw", gitsigns.toggle_word_diff, { desc = "Toggle word diff", buffer = bufnr })
       vim.keymap.set("n", "<leader>gdl", gitsigns.toggle_linehl, { desc = "Toggle line highlight", buffer = bufnr })
-      vim.keymap.set("n", "<leader>gdn", gitsigns.toggle_numhl, { desc = "Toggle number highlight", buffer = bufnr })
-      vim.keymap.set("n", "<leader>gds", gitsigns.toggle_signs, { desc = "Toggle git signs", buffer = bufnr })
+      vim.keymap.set("n", "<leader>gn", gitsigns.toggle_numhl, { desc = "Toggle number highlight", buffer = bufnr })
+      vim.keymap.set("n", "<leader>gs", gitsigns.toggle_signs, { desc = "Toggle git signs", buffer = bufnr })
       vim.keymap.set(
         "n",
         "<leader>tgb",
         gitsigns.toggle_current_line_blame,
         { desc = "Toggle blame line", buffer = bufnr }
       )
-      vim.keymap.set("n", "<leader>tgd", gitsigns.toggle_deleted, { desc = "Toggle deleted lines", buffer = bufnr })
+      vim.keymap.set(
+        "n",
+        "<leader>tgd",
+        gitsigns.preview_hunk_inline,
+        { desc = "Toggle deleted lines", buffer = bufnr }
+      )
       vim.keymap.set("n", "<leader>tgw", gitsigns.toggle_word_diff, { desc = "Toggle word diff", buffer = bufnr })
       vim.keymap.set("n", "<leader>tgl", gitsigns.toggle_linehl, { desc = "Toggle line highlight", buffer = bufnr })
       vim.keymap.set("n", "<leader>tgn", gitsigns.toggle_numhl, { desc = "Toggle number highlight", buffer = bufnr })

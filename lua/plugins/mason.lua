@@ -1,9 +1,22 @@
 return {
   "WhoIsSethDaniel/mason-tool-installer.nvim",
-  lazy = false,
+  cmd = {
+    "MasonToolsClean",
+    "MasonToolsInstall",
+    "MasonToolsInstallSync",
+    "MasonToolsUpdate",
+    "MasonetoolsUpdateSync",
+  },
   dependencies = {
     "mason-org/mason.nvim",
-    lazy = false,
+    cmd = {
+      "Mason",
+      "MasonInstall",
+      "MasonUninstall",
+      "MasonUninstallAll",
+      "MasonLog",
+      "MasonUpdate",
+    },
     opts = {
       registries = {
         "github:mason-org/mason-registry",
@@ -11,7 +24,6 @@ return {
       },
       ui = {
         border = vim.g.border,
-        backdrop = 100,
         icons = {
           package_installed = "+",
           package_pending = "!",
@@ -24,30 +36,20 @@ return {
     ensure_installed = {
       "angular-language-server",
       "biome",
+      "blade-formatter",
       "css-lsp",
       "css-variables-language-server",
       "cssmodules-language-server",
-      "eslint-lsp",
       "html-lsp",
-      "htmlhint",
-      "jsonlint",
       "lua-language-server",
-      "luacheck",
-      "mypy",
       "prettierd",
-      "python-lsp-server",
       "roslyn",
-      "ruff",
       "rzls",
       "stylua",
-      "tlint",
       "typescript-language-server",
-      "yamllint",
-      "taplo",
     },
-
-    auto_update = true,
-    run_on_start = true,
+    auto_update = false,
+    run_on_start = false,
     start_delay = 3000,
   },
 }
