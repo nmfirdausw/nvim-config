@@ -2,7 +2,6 @@ return {
   "folke/which-key.nvim",
   event = "VeryLazy",
   opts = {
-    preset = "helix",
     win = {
       no_overlap = true,
       col = 0,
@@ -22,5 +21,5 @@ return {
       { "<leader>gh", desc = "Hunk", cond = Utils.is_git_dir() },
       { "<leader>tg", desc = "Git", cond = Utils.is_git_dir() },
     },
-  }
+  },
 }
