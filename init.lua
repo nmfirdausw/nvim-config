@@ -4,4 +4,4 @@ require("config.plugins")
 require("config.treesitter")
 require("config.mason")
 require("config.lsp")
-
+require("config.copilot")
