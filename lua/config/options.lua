@@ -6,7 +6,7 @@ vim.opt.tabstop = 2
 -- Visual and display
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
-vim.opt.fillchars:append({ eob = " " })
+vim.opt.fillchars:append({ eob = " ", foldopen = "-", foldclose = "+" })
 vim.opt.guifont = { "ComicCodeLigatures Nerd Font", ":h14" }
 vim.opt.laststatus = 3
 vim.opt.winheight = 5
@@ -17,6 +17,9 @@ vim.opt.wrap = false
 -- Behaviour
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+vim.opt.foldenable = true
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
 
 -- History and backup
 vim.opt.backup = false
