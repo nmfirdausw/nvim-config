@@ -5,9 +5,13 @@ require("nvim-treesitter").install({
 vim.api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("treesitter_config", { clear = true }),
   callback = function()
+    local buf = vim.api.nvim_get_current_buf()
+    local has_parser = pcall(vim.treesitter.get_parser, buf)
+    if not has_parser then
+      return
+    end
     vim.treesitter.start()
 
-    local buf = vim.api.nvim_get_current_buf()
     local lang = vim.treesitter.get_parser(buf):lang()
     local has_folds_query = pcall(vim.treesitter.query.get, lang, 'folds')
     local has_indents_query = pcall(vim.treesitter.query.get, lang, 'indents')
