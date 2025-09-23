@@ -2,6 +2,9 @@
 vim.g.mapleader = " "
 vim.g.border = "rounded"
 vim.g.format_on_save = true
+vim.g.codelens = true
+vim.g.inlay_hints = true
+vim.g.diagnostics = true
 
 -- Indentation
 vim.opt.expandtab = true
@@ -14,6 +17,9 @@ vim.opt.cursorlineopt = "number"
 vim.opt.fillchars:append({ eob = " ", foldopen = "-", foldclose = "+" })
 vim.opt.guifont = { "ComicCodeLigatures Nerd Font", ":h14" }
 vim.opt.laststatus = 3
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.signcolumn = "yes"
 vim.opt.winheight = 5
 vim.opt.winminheight = 5
 vim.opt.winminwidth = 10
