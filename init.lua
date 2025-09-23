@@ -20,6 +20,7 @@ require("config.blink-pairs")
 require("config.autocmds")
 require("config.snacks")
 require("config.ufo")
+require("config.indent")
 
 if Utils.is_git_dir() then
   require("config.gitsigns")
