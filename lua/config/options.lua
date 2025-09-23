@@ -5,6 +5,7 @@ vim.g.format_on_save = true
 vim.g.codelens = true
 vim.g.inlay_hints = true
 vim.g.diagnostics = true
+vim.g.golden_ratio_splits = true
 
 -- Indentation
 vim.opt.expandtab = true
@@ -20,9 +21,9 @@ vim.opt.laststatus = 3
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
-vim.opt.winheight = 5
-vim.opt.winminheight = 5
-vim.opt.winminwidth = 10
+-- vim.opt.winheight = 5
+-- vim.opt.winminheight = 5
+-- vim.opt.winminwidth = 10
 vim.opt.wrap = false
 
 -- Behaviour
