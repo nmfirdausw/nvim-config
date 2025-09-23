@@ -1,5 +1,7 @@
 vim.lsp.enable({
   "lua_ls",
+  "intelephense",
+  "html",
 })
 
 vim.api.nvim_create_autocmd("CursorMoved", {
