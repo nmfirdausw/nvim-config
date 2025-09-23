@@ -15,6 +15,7 @@ vim.pack.add({
   { src = "https://github.com/folke/snacks.nvim" },
   { src = "https://github.com/kevinhwang91/promise-async" },
   { src = "https://github.com/kevinhwang91/nvim-ufo" },
+  { src = "https://github.com/NMAC427/guess-indent.nvim" },
 })
 
 if Utils.is_git_dir() then
