@@ -1,5 +1,5 @@
 vim.api.nvim_create_autocmd("VimEnter", {
-  group = vim.api.nvim_create_augroup("mini_config", { clear = true }),
+  group = vim.api.nvim_create_augroup("whickey_config", { clear = true }),
   callback = function()
     vim.schedule(function()
       require("which-key").setup({
