@@ -1,5 +1,7 @@
 require("nvim-treesitter").install({
   "lua",
+  "php",
+  "html",
 })
 
 vim.api.nvim_create_autocmd("FileType", {
