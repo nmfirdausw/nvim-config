@@ -1,3 +1,8 @@
+-- Global config options
+vim.g.mapleader = " "
+vim.g.border = "rounded"
+vim.g.format_on_save = true
+
 -- Indentation
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2

@@ -1,5 +1,3 @@
-vim.g.mapleader = " "
-
 vim.keymap.set("n", "<C-c>", "\"+yy", { desc = "Copy line to clipboard" })
 vim.keymap.set("v", "<C-c>", "\"+y", { desc = "Copy to clipboard" })
 
