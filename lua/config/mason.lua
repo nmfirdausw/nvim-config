@@ -21,4 +21,3 @@ vim.api.nvim_create_user_command("Mason", function(opts)
 
   vim.cmd("Mason")
 end, {})
-
