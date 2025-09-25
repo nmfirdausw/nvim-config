@@ -7,6 +7,8 @@
 -- Global configuration
 vim.g.mapleader = " "
 vim.g.border = "rounded"
+vim.g.auto_resize_splits = true
+vim.g.splits_ratio = 0.618
 
 -- Indentation and formatting
 vim.opt.expandtab = true

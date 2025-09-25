@@ -35,3 +35,33 @@ vim.api.nvim_create_autocmd("VimEnter", {
   end,
   once = true,
 })
+
+-- Remember the main window when leaving and entering windows
+vim.api.nvim_create_autocmd({ "WinLeave", "WinEnter" }, {
+  callback = function()
+    if vim.bo.buftype ~= "" then
+      return
+    end
+    MainWin = vim.api.nvim_get_current_win()
+  end,
+})
+
+-- Resize splits when entering a window
+vim.api.nvim_create_autocmd("WinEnter", {
+  group = vim.api.nvim_create_augroup("ResizeSplitWhenEnterWindow", { clear = true }),
+  callback = function()
+    if vim.bo.buftype ~= "" then
+      return
+    end
+    local main_win = vim.api.nvim_get_current_win()
+    require("config.utils").resize_splits(main_win)
+  end,
+})
+
+-- Resize splits when terminal is resized
+vim.api.nvim_create_autocmd("VimResized", {
+  group = vim.api.nvim_create_augroup("ResizeSplitsWhenVimResized", { clear = true }),
+  callback = function()
+    require("config.utils").resize_splits(MainWin)
+  end,
+})

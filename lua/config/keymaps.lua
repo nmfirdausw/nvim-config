@@ -49,3 +49,10 @@ vim.keymap.set("n", "<leader>ts", function()
     vim.notify("Sign column enabled")
   end
 end, { desc = "Toggle sign column" })
+
+-- Toggle auto resize of splits
+vim.keymap.set("n", "<leader>tt", function()
+  vim.g.auto_resize_splits = not vim.g.auto_resize_splits
+  local status = vim.g.auto_resize_splits and "enabled" or "disabled"
+  vim.notify("Auto resize splits " .. status)
+end, { desc = "Toggle auto resize of splits" })
