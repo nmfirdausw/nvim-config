@@ -6,26 +6,26 @@
 local M = {}
 
 -- Formatters to install with MasonToolInstaller
--- Run :MasonToolInstall to install them
+-- Run :MasonToolsInstall to install them
 M.install = {
-	"stylua",
+  "stylua",
 }
 
 -- Filetype to formatter mappings
 M.ftformatter = {
-	lua = { "stylua" },
+  lua = { "stylua" },
 }
 
 -- Formatter-specific configuration
 M.formatters = {
-	stylua = {
-		args = {
-			"--indent-type=Spaces",
-			"--indent-width=2",
-			"--quote-style=ForceDouble",
-			"-",
-		},
-	},
+  stylua = {
+    args = {
+      "--indent-type=Spaces",
+      "--indent-width=2",
+      "--quote-style=ForceDouble",
+      "-",
+    },
+  },
 }
 
 return M

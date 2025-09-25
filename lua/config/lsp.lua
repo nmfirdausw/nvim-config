@@ -6,7 +6,7 @@
 local M = {}
 
 -- Servers to install with MasonToolInstaller
--- Run :MasonToolInstall to install them
+-- Run :MasonToolsInstall to install them
 M.install = {
   "copilot-language-server",
   "intelephense",
