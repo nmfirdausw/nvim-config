@@ -1,6 +1,7 @@
 vim.api.nvim_create_autocmd("VimEnter", {
-  group = vim.api.nvim_create_augroup("blink_pairs_config", { clear = true }),
+  group = vim.api.nvim_create_augroup("BlinkPairsSetup", { clear = true }),
   callback = function()
+    vim.cmd.packadd("blink.pairs")
     vim.schedule(function()
       require("blink.pairs").setup({
         mappings = {

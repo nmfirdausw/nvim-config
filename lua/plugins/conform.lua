@@ -1,19 +1,11 @@
 local conform_has_setup = false
+local config = require("config.formatting")
+
 local setup_conform = function()
+  vim.cmd.packadd("conform.nvim")
   require("conform").setup({
-    formatters_by_ft = {
-      lua = { "stylua" },
-    },
-    formatters = {
-      stylua = {
-        args = {
-          "--indent-type=Spaces",
-          "--indent-width=2",
-          "--quote-style=ForceDouble",
-          "-",
-        },
-      },
-    },
+    formatters_by_ft = config.ftformatter,
+    formatters = config.formatters,
     default_format_opts = {
       lsp_format = "fallback",
     },
@@ -29,7 +21,7 @@ local setup_conform = function()
 end
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-  group = vim.api.nvim_create_augroup("formatter_config", { clear = true }),
+  group = vim.api.nvim_create_augroup("ConformSetup", { clear = true }),
   callback = function()
     if not conform_has_setup then
       setup_conform()
@@ -41,7 +33,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
       conform_has_setup = true
     end
   end,
-  once = true,
 })
 
 vim.keymap.set("n", "<C-f>", function()

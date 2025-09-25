@@ -1,6 +1,7 @@
-vim.api.nvim_create_autocmd("VimEnter", {
-  group = vim.api.nvim_create_augroup("blink_cmp_config", { clear = true }),
+vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
+  group = vim.api.nvim_create_augroup("BlinkCmpSetup", { clear = true }),
   callback = function()
+    vim.cmd.packadd("blink.cmp")
     vim.schedule(function()
       require("blink.cmp").setup({
         keymap = {

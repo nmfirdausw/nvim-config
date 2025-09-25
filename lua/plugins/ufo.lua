@@ -1,11 +1,10 @@
-local ftprovider = {
-  lua = "indent",
-}
+local ftprovider = require("config.fold").ftprovider
 
 vim.api.nvim_create_autocmd("VimEnter", {
-  group = vim.api.nvim_create_augroup("diagnostic_config", { clear = true }),
+  group = vim.api.nvim_create_augroup("UfoSetup", { clear = true }),
   callback = function()
     vim.schedule(function()
+      vim.cmd.packadd("nvim-ufo")
       require("ufo").setup({
         provider_selector = function(_, filetype, _)
           return ftprovider[filetype] or { "treesitter", "indent" }
