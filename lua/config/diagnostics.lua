@@ -1,3 +1,8 @@
+-- ============================================================================
+-- Diagnostics: Error, warning, and info display configuration
+-- ============================================================================
+-- Configures how LSP diagnostics are displayed and provides toggle functionality.
+
 local opts = {
   signs = {
     text = {
@@ -22,9 +27,7 @@ vim.diagnostic.config(opts)
 -- Toggle diagnostics
 vim.keymap.set("n", "<leader>td", function()
   local diag = require("tiny-inline-diagnostic")
-
   vim.g.diagnostics = not vim.g.diagnostics
-
   if vim.g.diagnostics then
     vim.diagnostic.config(opts)
     diag.enable()
