@@ -1,18 +1,19 @@
--- Global config options
+-- ============================================================================
+-- Options: Neovim configuration settings
+-- ============================================================================
+-- Custom vim options that configure the editor's behavior, appearance,
+-- and functionality to improve the overall editing experience.
+
+-- Global configuration
 vim.g.mapleader = " "
 vim.g.border = "rounded"
-vim.g.format_on_save = true
-vim.g.codelens = true
-vim.g.inlay_hints = true
-vim.g.diagnostics = true
-vim.g.golden_ratio_splits = true
 
--- Indentation
+-- Indentation and formatting
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 
--- Visual and display
+-- UI and appearance
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
 vim.opt.fillchars:append({ eob = " ", foldopen = "-", foldclose = "+" })
@@ -21,19 +22,19 @@ vim.opt.laststatus = 3
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
--- vim.opt.winheight = 5
--- vim.opt.winminheight = 5
--- vim.opt.winminwidth = 10
 vim.opt.wrap = false
 
--- Behaviour
+-- Window and split behavior
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+
+-- Code folding
 vim.opt.foldenable = true
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
+vim.opt.foldmethod = "indent"
 
--- History and backup
+-- File handling and persistence
 vim.opt.backup = false
 vim.opt.confirm = true
 vim.opt.history = 1000

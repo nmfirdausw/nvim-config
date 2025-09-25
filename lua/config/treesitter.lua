@@ -1,34 +1,16 @@
-require("nvim-treesitter").install({
+-- ============================================================================
+-- TreeSitter: Syntax highlighting and parsing configuration
+-- ============================================================================
+-- Defines parsers to install for enhanced syntax highlighting and code analysis.
+
+-- List of parsers to automatically install
+local parsers = {
   "html",
   "lua",
   "php",
-})
+}
 
-vim.api.nvim_create_autocmd("FileType", {
-  group = vim.api.nvim_create_augroup("treesitter_config", { clear = true }),
-  callback = function()
-    local buf = vim.api.nvim_get_current_buf()
-    local has_parser = pcall(vim.treesitter.get_parser, buf)
-    if not has_parser then
-      return
-    end
-    vim.treesitter.start()
-
-    local lang = vim.treesitter.get_parser(buf):lang()
-    local has_folds_query = pcall(vim.treesitter.query.get, lang, "folds")
-    local has_indents_query = pcall(vim.treesitter.query.get, lang, "indents")
-
-    if has_folds_query then
-      vim.wo.foldmethod = "expr"
-      vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-    end
-
-    if has_indents_query then
-      vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
-    end
-  end,
-})
-
+-- Toggle syntax highlighting for the current buffer
 vim.keymap.set("n", "<leader>th", function()
   local buf = vim.api.nvim_get_current_buf()
   local lang = vim.treesitter.language.get_lang(vim.bo[buf].filetype)
@@ -45,3 +27,5 @@ vim.keymap.set("n", "<leader>th", function()
     vim.notify("Treesitter highlighting enabled for this buffer")
   end
 end, { desc = "Toggle syntax highlighting" })
+
+return parsers

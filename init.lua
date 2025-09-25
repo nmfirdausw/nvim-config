@@ -1,29 +1,10 @@
-vim.env.PATH = "/opt/homebrew/bin:" .. vim.env.PATH
-
-_G.Utils = require("config.utils")
-_G.MainWin = vim.api.nvim_get_current_win()
+local mason_bin_path = vim.fn.stdpath("data") .. "/mason/bin"
+vim.env.PATH = mason_bin_path .. ":" .. vim.env.PATH
 
 require("config.options")
 require("config.keymaps")
-require("config.statuscolumn")
-require("config.plugins")
-require("config.treesitter")
-require("config.mason")
-require("config.lsp")
-require("config.diagnostic")
-require("config.copilot")
-require("config.tiny-inline-diagnostic")
-require("config.conform")
-require("config.mini-ai")
-require("config.blink-cmp")
-require("config.blink-pairs")
 require("config.autocmds")
-require("config.snacks")
-require("config.ufo")
+require("config.diagnostics")
+require("config.statuscolumn")
 require("config.indent")
-
-if Utils.is_git_dir() then
-  require("config.gitsigns")
-end
-
-require("config.which-key")
+require("plugins")

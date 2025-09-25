@@ -1,24 +1,22 @@
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = {
-    "lua",
-  },
-  callback = function()
-    vim.bo.expandtab = true
-    vim.bo.shiftwidth = 2
-    vim.bo.softtabstop = 2
-    vim.bo.tabstop = 2
-  end,
-})
+-- ============================================================================
+-- Indent: Filetype-specific indentation configuration
+-- ============================================================================
+-- Manages indentation settings for different file types.
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = {
-    "html",
-    "php",
-  },
-  callback = function()
-    vim.bo.expandtab = true
-    vim.bo.shiftwidth = 4
-    vim.bo.softtabstop = 4
-    vim.bo.tabstop = 4
-  end,
-})
+-- Filetype configuration: { spaces, expandtab }
+local config = {
+  lua = { 2, true },
+}
+
+for filetype, indent_config in pairs(config) do
+  local spaces, expandtab = indent_config[1], indent_config[2]
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = filetype,
+    callback = function()
+      vim.bo.expandtab = expandtab
+      vim.bo.shiftwidth = spaces
+      vim.bo.softtabstop = spaces
+      vim.bo.tabstop = spaces
+    end,
+  })
+end

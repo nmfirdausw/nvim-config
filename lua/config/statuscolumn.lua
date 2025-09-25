@@ -1,4 +1,10 @@
-local statuscolumn = function()
+-- ============================================================================
+-- Statuscolumn: Custom status column configuration
+-- ============================================================================
+-- Custom statuscolumn implementation with fold indicators and sign integration.
+
+-- Global statuscolumn function that handles line numbers, signs, and fold indicators
+_G.StatusColumn = function()
   local lnum = vim.v.lnum
   local bufnr = vim.api.nvim_get_current_buf()
   local signs = vim.fn.sign_getplaced(bufnr, { lnum = lnum, group = "*" })[1].signs
@@ -22,12 +28,10 @@ local statuscolumn = function()
       if vim.fn.foldclosed(lnum) ~= -1 then
         return statuscolumn .. fillchars.foldclose .. "  "
       end
-
       if vim.fn.foldlevel(lnum) > vim.fn.foldlevel(lnum - 1) then
         if #signs > 0 and not signs[1].group:match("gitsigns_signs_") then
           return statuscolumn .. "%s "
         end
-
         return statuscolumn .. fillchars.foldopen .. "  "
       end
     end
@@ -40,37 +44,13 @@ local statuscolumn = function()
   return statuscolumn .. "│  "
 end
 
-_G.StatusColumn = statuscolumn
-vim.o.statuscolumn = "%{%v:lua._G.StatusColumn()%}"
+-- Enable the custom statuscolumn
+vim.opt.statuscolumn = "%{%v:lua._G.StatusColumn()%}"
 
--- Keymaps for toggling statuscolumn elements
-vim.keymap.set("n", "<leader>tn", function()
-  vim.opt.number = not vim.opt.number:get()
-  local status = vim.opt.number:get() and "enabled" or "disabled"
-  vim.notify("Line numbers " .. status)
-end, { desc = "Toggle line numbers" })
-
-vim.keymap.set("n", "<leader>tr", function()
-  vim.opt.relativenumber = not vim.opt.relativenumber:get()
-  local status = vim.opt.relativenumber:get() and "enabled" or "disabled"
-  vim.notify("Relative line numbers " .. status)
-end, { desc = "Toggle relative numbers" })
-
-vim.keymap.set("n", "<leader>ts", function()
-  local current = vim.opt.signcolumn:get()
-  if current == "yes" then
-    vim.opt.signcolumn = "no"
-    vim.notify("Sign column disabled")
-  else
-    vim.opt.signcolumn = "yes"
-    vim.notify("Sign column enabled")
-  end
-end, { desc = "Toggle sign column" })
-
--- Disable statuscolumn for help file
+-- Disable statuscolumn for special buffer types
 vim.api.nvim_create_autocmd("BufEnter", {
   callback = function()
-    if vim.bo.buftype == "help" then
+    if vim.bo.buftype ~= "" then
       vim.opt_local.statuscolumn = ""
       vim.opt_local.number = false
       vim.opt_local.signcolumn = "no"
