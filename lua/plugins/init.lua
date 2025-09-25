@@ -10,6 +10,8 @@ vim.pack.add({
   { src = "https://github.com/Saghen/blink.pairs", version = "main" },
   "https://github.com/lewis6991/gitsigns.nvim",
   "https://github.com/rachartier/tiny-inline-diagnostic.nvim",
+  "https://github.com/nvim-tree/nvim-web-devicons",
+  "https://github.com/folke/snacks.nvim",
 }, {
   confirm = false,
   load = function(plugin)

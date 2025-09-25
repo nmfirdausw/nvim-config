@@ -5,6 +5,26 @@
 
 local M = {}
 
+-- Check if the current working directory is a Git repository
+M.is_git_dir = function()
+  local cwd = vim.fn.getcwd():gsub(" ", "\\ ")
+  local gitdir = vim.fn.finddir(".git", cwd .. ";")
+  return gitdir ~= ""
+end
+
+-- Close all floating windows in the current tab
+M.close_all_floating_win = function()
+  local wins = vim.api.nvim_tabpage_list_wins(0)
+  for _, win in ipairs(wins) do
+    if vim.api.nvim_win_is_valid(win) then
+      local config = vim.api.nvim_win_get_config(win)
+      if config.relative ~= "" then
+        vim.api.nvim_win_close(win, true)
+      end
+    end
+  end
+end
+
 -- Trim common Neovim plugin prefixes and suffixes from plugin names
 function M.trim_plugin_name(name)
   if not name or type(name) ~= "string" then
