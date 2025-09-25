@@ -8,8 +8,9 @@ local M = {}
 -- Servers to install with MasonToolInstaller
 -- Run :MasonToolInstall to install them
 M.install = {
-  "lua-language-server",
   "copilot-language-server",
+  "intelephense",
+  "lua-language-server",
 }
 
 -- Servers to enable
@@ -17,6 +18,7 @@ M.install = {
 M.enable = {
   "lua_ls",
   "copilot",
+  "intelephense",
 }
 
 -- Default config

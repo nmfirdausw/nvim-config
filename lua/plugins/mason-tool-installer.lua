@@ -13,7 +13,7 @@ local setup = function()
   vim.cmd("LoadMason")
   vim.cmd.packadd("mason-tool-installer.nvim")
   local lsp = require("config.lsp").install
-  local formatters = require("config.formatters").install
+  local formatters = require("config.formatting").install
 
   local tools = vim.list_extend({}, lsp)
   vim.list_extend(tools, formatters)
