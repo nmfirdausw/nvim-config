@@ -5,9 +5,13 @@
 
 -- List of parsers to automatically install
 local parsers = {
+  "css",
   "html",
+  "javascript",
+  "latex",
   "lua",
   "php",
+  "regex",
 }
 
 -- Toggle syntax highlighting for the current buffer
