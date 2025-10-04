@@ -9,6 +9,7 @@ vim.g.mapleader = " "
 vim.g.border = "rounded"
 vim.g.auto_resize_splits = true
 vim.g.splits_ratio = 0.618
+vim.g.format_on_save = true
 
 -- Indentation and formatting
 vim.opt.expandtab = true
