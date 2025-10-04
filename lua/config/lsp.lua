@@ -114,6 +114,8 @@ M.setup = function()
       end
     end,
   })
+
+  vim.lsp.inlay_hint.enable(vim.g.inlay_hints)
 end
 
 return M
