@@ -24,18 +24,6 @@ vim.api.nvim_create_autocmd({ "InsertEnter" }, {
   end,
 })
 
--- Setup lsp after VimEnter
-vim.api.nvim_create_autocmd("VimEnter", {
-  group = vim.api.nvim_create_augroup("LspSetup", { clear = true }),
-  callback = function()
-    vim.schedule(function()
-      require("config.lsp").setup()
-      vim.lsp.inlay_hint.enable(vim.g.inlay_hints)
-    end)
-  end,
-  once = true,
-})
-
 -- Remember the main window when leaving and entering windows
 vim.api.nvim_create_autocmd({ "WinLeave", "WinEnter" }, {
   callback = function()
