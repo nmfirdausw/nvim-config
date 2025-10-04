@@ -1,5 +1,4 @@
 vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
-  group = vim.api.nvim_create_augroup("BlinkCmpSetup", { clear = true }),
   callback = function()
     vim.cmd.packadd("blink.cmp")
     vim.schedule(function()
