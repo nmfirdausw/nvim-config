@@ -1,5 +1,4 @@
 vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("TinyInlineDiagnosticSetup", { clear = true }),
   callback = function()
     vim.schedule(function()
       vim.cmd.packadd("tiny-inline-diagnostic.nvim")

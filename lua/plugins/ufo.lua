@@ -1,7 +1,6 @@
 local ftprovider = require("config.fold").ftprovider
 
 vim.api.nvim_create_autocmd("VimEnter", {
-  group = vim.api.nvim_create_augroup("UfoSetup", { clear = true }),
   callback = function()
     vim.schedule(function()
       vim.cmd.packadd("nvim-ufo")

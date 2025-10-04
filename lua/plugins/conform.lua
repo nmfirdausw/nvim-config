@@ -21,7 +21,6 @@ local setup_conform = function()
 end
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-  group = vim.api.nvim_create_augroup("ConformSetup", { clear = true }),
   callback = function()
     if not conform_has_setup then
       setup_conform()
