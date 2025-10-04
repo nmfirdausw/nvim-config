@@ -6,6 +6,8 @@
 -- Filetype configuration: { spaces, expandtab }
 local config = {
   lua = { 2, true },
+  php = { 4, true },
+  blade = { 4, true },
 }
 
 for filetype, indent_config in pairs(config) do
